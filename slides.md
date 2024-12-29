@@ -5,12 +5,17 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: Catching Up to Large Language Model (LLM)
+# titleTemplate for the webpage, `%s` will be replaced by the slides deck's title
+titleTemplate: '%s - Catching Up to Large Language Model (LLM)'
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## Catching Up to Large Language Model (LLM)
+# enable presenter mode, can be boolean, 'dev' or 'build'
+presenter: "dev"
+download: true
+exportFilename: 'catching-up-to-llm'
+highlighter: shiki
+lineNumbers: true
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -24,618 +29,916 @@ mdc: true
 overviewSnapshots: true
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+# Catching Up to Large Language Model (LLM)
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+Hello everyone
+On this opportunity, we will discuss "Catching Up to Large Language Model (LLM)"
+Hopefully, we can follow up a little and have a big picture on the last few years of development in the space of LLMs.
 -->
 
 ---
 transition: fade-out
 ---
 
-# What is Slidev?
+# Table of Contents
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+<Toc :style="{ columnCount: 2, columnGap: '5rem', height: '100%' }" />
 
 <!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
+As we all can see the Table of Contents,
+There are few topics that we are gonna discuss,
+First... *read first content to the end*
+Last but not least... *read last content*
 -->
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
+---
+transition: slide-left
+---
+
+# What is Artificial Intelligence, Machine Learning, and a Model?
+
+Large Language Models (LLMs) are a subset of Artificial Intelligence (AI) and Machine Learning (ML). [UC Berkeley](https://ischoolonline.berkeley.edu/blog/what-is-machine-learning/) defines AI and ML as follows:
+
+- AI refers to any of the software and processes that are designed to mimic the way humans think and process information.
+- Machine learning specifically refers to teaching devices to learn information given to a dataset without manual human interference.
+
+On the other hand, a model is a representation of a system or process that is used to make predictions or decisions based on data. In other words, it is a mathematical algorithm that is trained on a dataset to learn patterns and relationships in the data. Once trained, the model can be used to make predictions or decisions on new data.
 
 <!--
-Here is another comment.
+Before we get into the Monumental history of LLMs, let's start with the basics.
 -->
 
 ---
 transition: slide-up
-level: 2
 ---
 
-# Navigation
+# What are Large Language Models (LLMs)?
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+LLMs are a type of computer program that can recognize, understand, and generate human language. Think of them as a super-powered version of your phone's auto-complete feature. But instead of just finishing your sentences, they can do much more, like:
 
-## Keyboard Shortcuts
+- Translate languages
+- Answer questions about almost any topic
+- Write or generate stories, poems, articles, code, summarize documents, etc.
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+A simplified explanation of how they work:
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc v-click minDepth="1" maxDepth="2"></Toc>
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+- ***Learning Patterns***: During training, LLMs are exposed to countless examples of text, learning to predict the next word in a sequence. For example, it learns that "The cat sat on the..." is likely to be followed by "chair".
+- ***Building a Model***: Based on all this text, the LLM builds an internal model that represents the relationships between words, concepts, and even entire sentences. The better the model can represent the relationships between words, the better the LLM will be at generating meaningful responses.
+- ***Generating Text***: When you give the LLM a prompt, it uses its internal model to predict the most likely sequence of words to continue that prompt. This prediction process generates the text you see.
 
 <!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
+It's not that the LLM actually "understands", it is that it is very good at predicting the most likely response to a prompt.
 -->
 
 ---
-level: 2
+transition: slide-left
 ---
 
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
+# Practical Example
 
 <div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
+  <img class="object-cover h-50" alt="GGML Vicuna 7B" src="/ggml-vicuna-7b.png" />
+  <img class="object-cover h-50" alt="LLM is a function" src="/llm-is-a-function.jpeg" />
 </div>
-<div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
+A more practical answer is that it’s a file. This 4.2 gigabyte LLM file called `Vicuna 7B`. If we open the file, it’s just numbers. These things are giant binary blobs of numbers. Anything we do with them involves vast amounts of matrix multiplication, that’s it.
 
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
+We can also think of a model as a function. Here we imported `llm` package. Then, we get a reference to that GGML `Vicuna` model. We can prompt it saying “The capital of France is” and it responds “Paris.” So it’s a function that can complete text and give use answers.
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+Other file formats include:
+- GGUF (GGML Unified Format)
+- Hugging Face Transformers (.bin, .safetensors)
+- ONNX (Open Neural Network Exchange) (.onnx)
+- TensorFlow SavedModel (.pb, .pbtxt)
 -->
 
 ---
-class: px-20
+transition: slide-left
 ---
 
-# Themes
+# Training and Inference
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+Training and inference are two distinct phases in the lifecycle of a machine learning model.
 
-<div grid="~ cols-2 gap-2" m="t-2">
+During training, the model learns from the input data and adjusts its parameters to minimize the difference between its predictions and the actual target values. This process involves backpropagation, optimization algorithms, and iterative updates to the model's parameters.
 
-```yaml
----
-theme: default
----
-```
+Inference is the phase where the trained model is used to make predictions on new, unseen data. During inference, the model takes input data and generates output predictions based on the learned patterns and relationships in the training data. Inference is typically faster and less computationally intensive than training, as the model's parameters are fixed and do not need to be updated.
 
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
+<img class="object-cover h-50" alt="Training vs Inference" src="/training_vs_inference.jpg" />
 
 ---
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
+transition: slide-left
 ---
 
-# Motions
+# Parameters vs Weights vs Tokens
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+When talking about large language models (LLMs), it's helpful to understand the distinction between parameters, weights, and tokens. These terms are often used interchangeably, but they refer to different aspects of the model's architecture, training, and input/output.
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
+- ***Parameters***: Parameters are variables (which are essentially the connections and rules) that the model learns during the training process. These parameters are adjusted through backpropagation to minimize the difference between the model's predictions and the actual target values.
+- ***Weights***: Weights are numerical values associated with the parameters that represent the strength of connections between variables. During training, the model adjusts these weights to optimize its performance. Weights determine how input tokens are transformed as they pass through the layers of the model.
+- ***Tokens***: Tokens are the basic units of input and output in a language model. In natural language processing tasks, tokens typically represent words, subwords, or characters. During training and inference, the LLM processes input text as a sequence of tokens, each representing a specific word or symbol in the input text. The model generates output by predicting the most likely token to follow a given sequence of input tokens.
 
 ---
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
+transition: slide-left
 ---
 
-# Diagrams
+# Tokens
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+LLM tokens are the smallest units of text that a LLM understands and processes. Think of them as the building blocks of text, which can be whole words, parts of words, individual characters, or even punctuation and symbols. You might wonder, why not just use words as the basic unit? There are a few reasons:
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+- ***Efficiency***: Not every word is equally frequent. If we used entire words, we'd have an incredibly large vocabulary (potentially millions of words) that the LLM would need to process, making it less efficient.
+- ***Handling Uncommon Words***: Some words are very rare. Using full words would make it hard for the LLM to handle these.
+- ***Subword Units***: Many words are made of smaller parts (prefixes, suffixes, stems). Recognizing these parts separately can help the LLM understand the meaning and relationships between words.
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+The process of splitting text into tokens is called **tokenization**. It's done using specific algorithms based on a LLMs vocabulary that have been set in advance. We can see how tokenizer works in [OpenAI Tokenizer Playground](https://platform.openai.com/tokenizer)
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+<!--
+Here's a simplified overview of how tokenizer works:
 
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
+- Vocabulary Creation: During the LLM's initial training, a massive amount of text is analyzed to create a vocabulary (list of tokens). This vocabulary contains the most common words, subword units, and characters.
+- Text Splitting: Once we give a sentence or text to an LLM, the tokenization algorithm takes the text and splits it based on the LLM vocabulary. It breaks down the text into a list of the tokens it understands.
+- Numerical Representation: Each token in the vocabulary is then assigned a numerical ID. The model uses these IDs, instead of the text, for computations. This makes processing much faster.
+-->
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
+transition: slide-left
 ---
 
-# Draggable Elements
+# Context Length
 
-Double-click on the draggable elements to edit their positions.
+LLMs can only consider a limited amount of text at one time when generating a response or prediction. This is called the context length. It differs across models. But one trend is interesting. **Context length is increasing**.
 
-<br>
+- GPT-1 (2018) had a context length of 512 tokens.
+- GPT-2 (2019) supported 1,024.
+- GPT-3 (2020) supported 2,048.
+- GPT-3.5 (2022) supported 4,096
+- GPT-4 (2023) first supported 8,192, then 16,384, then 32,768. Now, it supports up to 128,000 tokens.
+- GPT-4o (2024) supported 128,000 tokens.
+- o1 (2024) supported 200,000 tokens.
 
-###### Directive Usage
+Just using the OpenAI models for comparison, context length has, on average, doubled every year for the last five years. An observation akin to *Moore's Law*:
 
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
+> The maximum context length is expected to double approximately every two years, driven by advances in neural network architectures, data processing techniques, and hardware capabilities.
 
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <carbon:arrow-up />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<!--
+Moore's Law is the observation that the number of transistors on an integrated circuit (IC) doubles roughly every two years, with a minimal increase in cost
+With long enough context lengths, we might ask questions on entire books or write full books with a single prompt. We might analyze an entire codebase in one pass. Or extract useful information from mountains of legal documents with complex interdependencies.
+-->
 
 ---
-src: ./pages/imported-slides.md
-hide: false
+transition: slide-left
 ---
 
+# What makes a LLM "Large"?
+
+The size of a language model can be measured in several ways, depending on the context and the specific characteristics of the model. Some common metrics used to describe the size of a language model include:
+
+- ***Massive Amounts of Training Data***: These models are trained on huge datasets of text and code from the internet. Imagine reading almost everything written on the web that's the scale we're talking about! This data gives them a vast understanding of grammar, facts, and patterns in language.
+- ***Parameter Count***: The number of parameters in an LLM typically represents the size or complexity of the model, with larger models having more parameters.
+- ***Memory Footprint***: The size of a model in terms of memory footprint can also indicate its scale. Large models often require significant amounts of memory to store their parameters during training and inference.
+- ***Compute Requirements***: The computational complexity of training and running a model can also indicate its size. Larger models typically require more computational resources (such as CPU or GPU cores) and longer training times.
+
+---
+transition: slide-left
 ---
 
-# Monaco Editor
+# Small vs Large Model Sizes
 
-Slidev provides built-in Monaco Editor support.
+The size of a large model can vary widely depending on factors such as the complexity of the task it's designed for. For example, models used for tasks like natural language processing (NLP) or computer vision may tend to be larger due to the complexity of the underlying data and tasks.
 
-Add `{monaco}` to the code block to turn it into an editor:
+There has been a trend towards increasingly larger models in the field of deep learning, driven by advances in hardware, algorithms, and access to large-scale datasets. For example, models like OpenAI's GPT-3 and Google's BERT have billions of parameters, pushing the boundaries of what was previously considered "large".
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+In general, we can categorize language models into three broad categories based on their size:
 
-const arr = ref(emptyArray(10))
+- ***Small models***: Less than ~1B parameters. Some of Apple's `OpenELM` models, `TinyLlama` and `tinydolphin` are examples of small models.
+- ***Medium models***: Roughly between 1B to 10B parameters. This is where `Mistral 7B`, `Phi-3`, `Gemma`, and `wizardlm2` sit. Fun fact: GPT 2 was a medium sized model, much smaller than its latest versions.
+- ***Large models***: Everything above 10B of parameters. This is where `Llama 3`, `Mistral 8 22B`, GPT 3+, etc.
+
+---
+transition: slide-left
+---
+
+# Model Performance
+
+The size of a LLM can have a significant impact on its performance and accuracy. In general, larger models tend to perform better on complex tasks and datasets, as they have more capacity to learn complex patterns and relationships between words, concepts, and ideas. This enables them to understand complex semantic relationships, such as metaphors, analogies, and implications. Larger models also tend to generate responses that are more detailed, specific, and contextual. They are less likely to produce vague or irrelevant answers.
+
+On the other hand, larger models require more computational resources to train and run, making them more expensive and time-consuming to develop and deploy. Additionally, larger models may be more prone to overfitting, where the model learns to memorize the training data rather than generalize to new, unseen data.
+
+While size is an important factor, it's not the only factor that affects performance. Here are some other things to consider:
+
+- ***Quality of Training Data***: A large model trained on poor-quality data may not perform well.
+- ***Model Architecture***: Choosing an architecture that is suitable for the task can also impact performance.
+- ***Data Augmentation***: Adding additional data points to the training set can help improve the model's performance.
+- ***Transfer Learning***: Using pre-trained models on similar tasks can help the model learn more effectively.
+
+---
+transition: slide-left
+---
+
+# Quantization and Sparsity
+
+LLMs can be computationally expensive to train and deploy, making it challenging to scale them to real-world applications. To address this challenge, techniques have been developed to reduce the size of language models while maintaining their performance and accuracy.
+
+- ***Sparsity*** introduces zeros into the parameters (weights) of the model to reduce its overall size and computational complexity. Sparse models have a significant portion of their parameters set to zero. This reduces memory footprint and computational requirements during both training and inference.
+- ***Quantization*** involves reducing the precision of numerical values in the model, typically by representing them with fewer bits. For example, instead of using 32-bit floating-point numbers (float32), quantization may use 8-bit integers (int8) to represent weights, activations, and other parameters of the model.
+
+<img class="object-cover h-44" alt="Quantization" src="/quantization.png" />
+
+<!--
+Give examples Llama 3.3 in Ollama
+-->
+
+---
+transition: slide-left
+---
+
+# LLM Benchmarks
+
+LLM benchmarks are standardized frameworks for assessing the performance of large language models (LLMs). These benchmarks consist of sample data, a set of questions or tasks to test LLMs on specific skills, metrics for evaluating performance and a scoring mechanism.
+
+Models are benchmarked based on their capabilities, such as coding, common sense and reasoning. Other capabilities encompass [natural language processing](https://www.ibm.com/topics/natural-language-processing), including machine translation, question answering and [text summarization](https://www.ibm.com/topics/text-summarization).
+
+LLM benchmarks play a crucial role in developing and enhancing models. Benchmarks showcase the progress of an LLM as it learns, with quantitative measures that highlight where the model excels and its areas for improvement. LLM benchmarks operate in a straightforward manner.
+
+1. We should already have a sample data full with answers for prepared—coding challenges, math problems, real-world conversations, science questions, commonsense reasoning, translation, or supplying a task that an LLM must accomplish.
+2. We run the benchmark to evaluate model performance according to a certain metric.
+3. Once tests are done, we compute how close a model’s output resembles the expected solution or standard answer, then generates a score between 0 and 100 for particular metric.
+
+<!--
+Key metrics for benchmarking include:
+- Accuracy or precision calculates the percentage of correct predictions.
+- Recall, also called the sensitivity rate, quantifies the number of true positives—the actual correct predictions.
+- The F1 score blends both accuracy and recall into one metric. It considers the two measures to be of equal weight to balance out any false positives or false negatives. F1 scores range from 0 to 1, with 1 signifying excellent recall and precision.
+- Exact match is the proportion of predictions an LLM matches exactly and is a valuable criteria for translation and question answering.
+- Perplexity measures how good a model is at prediction. The lower an LLM’s perplexity score, the better it is at comprehending a task.
+- Bilingual evaluation understudy (BLEU) evaluates machine translation by computing the matching n-grams (a sequence of n-adjacent text symbols) between an LLM’s predicted translation and a human-produced translation.
+- Recall-oriented understudy for gisting evaluation (ROUGE) evaluates text summarization and has several types. ROUGE-N, for instance, does similar calculations as BLEU for summaries, while ROUGE-L computes the longest common subsequence between the predicted summary and the human-produced summary.
+
+Meanwhile, human evaluation involves qualitative metrics such as coherence, relevance and semantic meaning. Human assessors examining and scoring an LLM can make for a more nuanced assessment, but it can be labor intensive, subjective and time consuming. Therefore, a balance of both quantitative and qualitative metrics is needed.
+-->
+
+---
+transition: slide-left
+---
+
+# LLM Leaderboards
+
+LLM leaderboards publish a ranking of LLMs based on a variety of benchmarks. Each benchmark typically has its own leaderboard, but independent LLM leaderboards also exist. For instance, Hugging Face has a collection of leaderboards, one of which is an [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/) that ranks multiple open-source models.
+
+Why are LLM Leaderboards Important?
+
+- ***Compare Performance***: Leaderboards make it easier to compare the capabilities of different models. Instead of relying on subjective opinions, you can see how each model performs on specific tasks.
+- ***Track Progress***: Leaderboards show the progress of LLMs over time, demonstrating which models are improving and what approaches are proving to be successful.
+- ***Identify Strengths and Weaknesses***: Different models might perform better at different tasks. Leaderboards help pinpoint the strengths and weaknesses of each model, which can be crucial for choosing the right model for a specific application.
+- ***Drive Research and Development***: They provide a way for researchers to track their progress and push the boundaries of what LLMs can do.
+- ***Transparency***: Making it more difficult to make unfounded claims about a model's capabilities.
+
+<!--
+live benchmarks:
+
+https://lmarena.ai/
+-->
+
+---
+transition: slide-up
+---
+
+# Future Trends
+
+LLMs keep evolving and consistently pushing its limitations with emerging advancements and trends. Below are some emerging trends in the LLM space:
+
+1. ***Small Language Models***: SLM aim to focus on added efficiency and security. SLMs provide a sustainable, secure alternative source, less compute power, and are ideal for on-premise deployment, which attracts most organizations today. Examples like `Gemini 1.0 Nano`, `Llama 3.2 1B`, `Qwen 2.5 Coder 0.5B`.
+
+2. ***Chain of Thought (CoT) / Reasoning Function***: Chain of Thought is like teaching LLMs to think out loud. It allows them to break down complex problems into smaller, more manageable steps, resulting in more accurate and understandable answers. It makes them more reliable and capable of handling complicated reasoning tasks. Examples like `OpenAI o1`, `DeepSeek V3`, and `Gemini 2.0 Flash Thinking Experimental`.
+
+3. ***Cost Decreasing***: We can see it in 3 ways.
+
+- First, the cost of developing (training) is likely decreasing. This is because we're seeing rapid advances in specialized hardware (like GPUs and TPUs) designed for AI, which are becoming more powerful and energy-efficient. Next, researchers are constantly developing more efficient training techniques, better model architectures, and ways to use less training data.
+
+---
+transition: slide-up
+---
+
+- Second, the cost of utilizing (inference) is likely decreasing. This is because we're seeing a lot of research going into optimizing LLMs for inference (using the trained model to generate text) to make them faster and cheaper to run. Next, techniques to reduce the size of models without drastically compromising performance are being developed. Next, the deployment of specialised inference hardware is making it cheaper to run the models for end users. Next, cloud providers will continue to optimise their services and compete on cost.
+
+- Third, the usage cost for end-users is likely decreasing. This is because as LLMs become more commoditized, the providers will compete on price, making it more affordable to use. Next, more providers are offering free or very low-cost tiers for basic use cases. Next, APIs will be created for more specific tasks, and prompt caching features resulting in lower prices for consumers. Next, running LLMs on devices like phones/browsers will also bring down the cost for users.
+
+4. ***Hybrid LLMs with Multimodal Capabilities***: By supporting multiple forms of data such as pdf, images, videos, and audio, allowing these models to understand and generate content across different media types, further enhancing their capabilities and applications. Examples like `GPT 4o`, `Claude Sonnet 3.5` and `Gemini 2.0 Flash Experimental`.
+
+5. ***LLMs Inference as Commodity***: LLM inference will also be a new form of commodity that will quickly outgrow the rest of the compute market by orders of magnitude.
+Like electricity or oil, inference requires sophisticated market infrastructure to match dynamic supply and demand.
+
+---
+transition: slide-left
+---
+
+6. ***Fine-tuned domain-specific LLMs***: [Gartner Poll]((https://research.aimultiple.com/future-of-large-language-models/#easy-footnote-bottom-4-656554)) finds that 70% of firms are investing in generative AI research to incorporate it into their business strategies. Google, Microsoft, and Meta are developing their own proprietary, customized models to provide their customers with a unique and personalized experience. These specialized LLMs can result in fewer hallucinations and higher accuracy by leveraging: domain-specific pre-training, model alignment, and supervised fine-tuning. Examples like `BloombergGPT` for finance, and `Google’s Med-Palm 2` for medical healthcare.
+
+7. ***AI Agents***: With improved reasoning abilities, faster and cheaper inference, multimodality, and higher context length, AI agents will be able to take on more complex tasks, become much more autonomous, making better decisions and solving complex problems. Recently, AI agents also becoming popular in Decentralized Web3 / Crypto ecosystems. New projects keep on emerging like [Goatseus Maximus](https://goatchan.xyz/) (behind [Truth Terminal](https://truthterminal.wiki/)), [aixbt](https://x.com/aixbt_agent), [Zerebro](https://x.com/0xzerebro), [ELIZA](https://elizawakesup.ai/), etc are the examples.
+
+<img class="object-cover h-45" alt="Crypto Mindshare per December 2024" src="/crypto-mindshare.jpeg" />
+
+<!--
+As we can see, from the image, as per December 2024, the crypto mindshare of "AI" is 38.47% beating "Meme", "DeFi", "Layer 2", etc. This is a great sign for LLMs and AI agents.
+-->
+
+---
+transition: slide-up
+---
+
+# AI Ethics and Safety
+
+The main purpose of AI is to ensure that ***Artificial General Intelligence*** (AI systems that are generally smarter than humans) benefits all of humanity.
+But, rapid advancements of AI, raising concerns among experts, policymakers, and world leaders about its potential risks. As with all powerful technologies, advanced AI must be handled with great responsibility to manage the risks and harness its potential. [Catastrophic AI risks](https://www.safe.ai/ai-risk) can be grouped under four key categories which are summarized below:
+
+- ***Malicious use***: People could intentionally harness powerful AIs to cause widespread harm. AI could be used to engineer new pandemics or for propaganda, censorship, and surveillance, or released to autonomously pursue harmful goals. To reduce these risks, we suggest improving biosecurity, restricting access to dangerous AI models, and holding AI developers liable for harms.
+
+- ***AI race***: Competition could push nations and corporations to rush AI development, relinquishing control to these systems. Conflicts could spiral out of control with autonomous weapons and AI-enabled cyberwarfare. Corporations will face incentives to automate human labor, potentially leading to mass unemployment and dependence on AI systems. We recommend safety regulations, international coordination, and public control of general-purpose AIs.
+
+---
+transition: slide-left
+---
+
+- ***Organizational risks***: There are risks that organizations developing advanced AI cause catastrophic accidents, particularly if they prioritize profits over safety. AIs could be accidentally leaked to the public or stolen by malicious actors, and organizations could fail to properly invest in safety research. We suggest fostering a safety-oriented organizational culture and implementing rigorous audits, multi-layered risk defenses, and state-of-the-art information security.
+
+- ***Rogue AIs***: We risk losing control over AIs as they become more capable. AIs could optimize flawed objectives, drift from their original goals, become power-seeking, resist shutdown, and engage in deception. We suggest that AIs should not be deployed in high-risk settings, such as by autonomously pursuing open-ended goals or overseeing critical infrastructure, unless proven safe. We also recommend advancing AI safety research in areas such as adversarial robustness, model honesty, transparency, and removing undesired capabilities.
+
+These all interconnected risks can also amplify other existential risks like engineered pandemics, nuclear war, great power conflict, [totalitarianism](https://en.wikipedia.org/wiki/Totalitarianism), and cyberattacks on critical infrastructure ~ warranting serious concern.
+
+[There are many strategies / safety best practices to substantially reduce these risks](https://platform.openai.com/docs/guides/safety-best-practices). For example, we can limit access to dangerous AIs, advocate for safety regulations, foster international cooperation and a culture of safety, and creating [Model Spec](https://openai.com/index/introducing-the-model-spec/) (a document that specifies how we want our models to behave as broader systematic approach to model safety).
+
+---
+transition: slide-left
+---
+
+# Monumental History of LLMs
+
+```mermaid {scale: 0.8, alt: 'Timeline of LLMs diagram'}
+timeline
+  1966 : ELIZA
+  2015 : in December, OpenAI founded
+  2017 : in June, Google released "Attention is all you need" paper
+  2018 : in June, OpenAI released "GPT-1"
+  2019 : in February, OpenAI released "GPT-2"
+       : in July, Microsoft invest ~$1B into OpenAI
 ```
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+<!--
+ELIZA was the world’s first chatbot, designed by MIT researcher Joseph Weizenbaum. Eliza marked the beginning of research into natural language processing (NLP), providing the foundation for future, more complex LLMs.
 
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
+OpenAI was founded: mainly doing Atari game demos using reinforcement learning. The demos were pretty cool—computers figuring out how to play games based just on the visuals shown on the screen. This represented the state of the art at the time, but it wasn’t language related -> https://openai.com/blog/introducing-openai
 
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
+Google Brain released Attention Is All You Need, a paper describing the Transformer architecture. It was ignored my almost everyone, including many people at OpenAI... but one researcher there, Alec Radford, realized its importance with regards to language models due to the way it could scale training across multiple machines -> https://arxiv.org/abs/1706.03762
+
+GPT-1, a basic language model with 117M parameters. Notably, GPT-1 was first pre-trained in an unsupervised fashion, then fine-tuned for each specific benchmark or task in a supervised fashion. -> [Improving language understanding with unsupervised learning](https://openai.com/research/language-unsupervised)
+
+GPT-2, improvements on GPT-1 with 1,5B parameters -> [Better language models and their implications](https://openai.com/research/better-language-models)
+-->
+
+---
+transition: slide-left
+---
+
+# Monumental History of LLMs
+
+```mermaid {scale: 0.8, alt: 'Timeline of LLMs diagram'}
+timeline
+  2020 : in May, OpenAI released "GPT-3"
+  2021 : in January, OpenAI released "DALL-E"
+       : in July, OpenAI released "Codex"
+       : in August, Microsoft released "Github Copilot"
+  2022 : in May, The “Let’s think step by step” paper by Kojima Takeshi
+       : in November, OpenAI released "ChatGPT"
+  2023 : in January, Microsoft invest ~$10B into OpenAI
+       : in March, OpenAI released "GPT-4"
+  2024 : in February, OpenAI released "Sora"
+       : in September, OpenAI released "o1"
+       : in December, OpenAI unveils "o3"
 ```
+
+<!--
+GPT-3, the first that could answer questions, complete text, summarize, etc with 175B parameters. -> [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
+
+DALL·E is a 12-billion parameter version of GPT-3⁠ trained to generate images from text descriptions, using a dataset of text–image pairs.
+
+OpenAI introduced Codex as a separate and more focused model for code generation. The initial version of Codex was trained on billions of lines of publicly available code from GitHub and other sources.
+
+Microsoft released Github Copilot which is powered by OpenAI Codex.
+
+“Let’s think step by step” paper found that LLM, without any specific examples, can solve complicated problems by taking them step-by-step. It's like asking a model to "think out loud" by breaking a problem down. This approach, called "chain of thought prompting", shows significant improvement in performance compared to just asking for the answer directly. This ability of the model comes about as a surprising benefit of the large models, without directly programming this "reasoning" capability.
+
+When ChatGPT released, everything goes wild. Everyone was talking about it (FOMO).
+
+GPT-4, improvements on GPT-3 with 1,76T parameters. -> [Paper](https://cdn.openai.com/papers/gpt-4.pdf)
+
+Sora is a video generation models as world simulators. It can generate videos and images spanning diverse durations, aspect ratios and resolutions, up to a full minute of high definition video.
+
+o1 is a new series of AI models designed to spend more time thinking before they respond (CoT). They can reason through complex tasks and solve harder problems than previous models in science, coding, and math.
+
+o3 is the upgraded version of o1. OpenAI plans to release the "mini" version of o3 toward the end of January and the full version sometime after that.
+
+Unique things about OpenAI that I observed is that OpenAI is a trend setter.
+There is something called OpenAI-compatible API. It means that the API is designed to work similarly to OpenAI's official API. This generally implies that:
+- Similar Request Format: The structure of the requests you send to the API (the way you ask for text generation, for example) is very similar or identical to the format used in OpenAI's API.
+- Similar Response Format: The structure of the responses you get back from the API (the generated text, etc.) is also very similar or identical to the structure of responses from OpenAI's API.
+- Functionality Parity: The API generally provides similar capabilities and functionality to OpenAI's API. This includes text generation, model selection, parameter control, and other features.
+
+Another example is $20 pricing
+-->
+
+---
+transition: slide-left
+layout: image
+image: https://plus.unsplash.com/premium_photo-1665908670219-dce1e775e849?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+---
+
+# Roadmap
+
+<!--
+Broadly speaking, we can group the LLM into 2 roadmap, which is LLM Scientist and LLM Engineer.
+-->
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+# LLM Fundamentals Roadmap
+
+This roadmap introduces essential knowledge about mathematics, Python neural networks. You might not want to start here but refer to it as needed.
+
+1. Mathematics for Machine Learning
+
+Before mastering machine learning, it is important to understand the fundamental mathematical concepts that power these algorithms.
+
+- Linear Algebra: This is crucial for understanding many algorithms, especially those used in deep learning. Key concepts include vectors, matrices, determinants, and linear transformations.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+- Calculus: Many machine learning algorithms involve the optimization of continuous functions, which requires an understanding of derivatives, integrals, limits, and series.
+
+- Probability and Statistics: These are crucial for understanding how models learn from data and make predictions. Key concepts include probability theory, random variables, probability distributions, expectations, variance, covariance, correlation, hypothesis testing, confidence intervals, and Bayesian inference.
+
+2. Python for Machine Learning
+
+Python is a powerful and flexible programming language that's particularly good for machine learning, thanks to its readability, consistency, and robust ecosystem of data science libraries.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+- Python Basics: Python programming requires a good understanding of the basic syntax, data types, error handling, and object-oriented programming.
+
+- Data Science: It includes familiarity with NumPy for numerical operations, Pandas for data manipulation and analysis, Matplotlib and Seaborn for data visualization.
+
+- Data Preprocessing: This involves feature scaling and normalization, handling missing data, outlier detection, categorical data encoding, and splitting data into training, validation, and test sets.
+
+- Machine Learning: Proficiency with Scikit-learn for supervised and unsupervised learning algorithms. Understanding how to implement algorithms like linear regression, decision trees, random forests, etc.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+3. Neural Networks
+
+Neural networks are a fundamental part of many machine learning models, particularly in the realm of deep learning. To utilize them effectively, a comprehensive understanding of their design and mechanics is essential.
+
+- Fundamentals: This includes understanding the structure of a neural network such as layers, weights, biases, and activation functions (sigmoid, tanh, ReLU, etc.)
+
+- Training and Optimization: Familiarize yourself with backpropagation and different types of loss functions, like Mean Squared Error (MSE) and Cross-Entropy. Understand various optimization algorithms like Gradient Descent, Stochastic Gradient Descent, RMSprop, and Adam.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+- Overfitting: Understand the concept of overfitting (where a model performs well on training data but poorly on unseen data) and learn various regularization techniques (dropout, L1/L2 regularization, early stopping, data augmentation) to prevent it.
+
+- Implement a Multilayer Perceptron (MLP): Build an MLP, also known as a fully connected network, using PyTorch.
+
+4. Natural Language Processing (NLP)
+
+NLP is a fascinating branch of artificial intelligence that bridges the gap between human language and machine understanding. From simple text processing to understanding linguistic nuances, NLP plays a crucial role in many applications like translation, sentiment analysis, chatbots, and much more.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+- Text Preprocessing: Learn various text preprocessing steps like tokenization (splitting text into words or sentences), stemming (reducing words to their root form), lemmatization (similar to stemming but considers the context), stop word removal, etc.
+
+- Feature Extraction Techniques: Become familiar with techniques to convert text data into a format that can be understood by machine learning algorithms. Key methods include Bag-of-words (BoW), Term Frequency-Inverse Document Frequency (TF-IDF), and n-grams.
+
+---
+transition: slide-left
+layout: image-right
+image: llm-fundamentals-roadmap.png
+backgroundSize: contain
+---
+
+- Word Embeddings: Word embeddings are a type of word representation that allows words with similar meanings to have similar representations. Key methods include Word2Vec, GloVe, and FastText.
+
+- Recurrent Neural Networks (RNNs): Understand the working of RNNs, a type of neural network designed to work with sequence data. Explore LSTMs and GRUs, two RNN variants that are capable of learning long-term dependencies.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+# LLM Scientist Roadmap
+
+This roadmap focuses on learning how to build the best possible LLMs using the best and latest techniques.
+
+1. The LLM architecture
+
+While an in-depth knowledge about the Transformer architecture is not required, it is important to have a good understanding of its inputs (tokens) and outputs (logits). The vanilla attention mechanism is another crucial component to master, as improved versions of it are introduced later on.
+
+- High-level view: Revisit the encoder-decoder Transformer architecture, and specifically the decoder-only GPT architecture, which is used in every modern LLM.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Tokenization: Understand how to convert raw text data into a format that the model can understand, which involves splitting the text into tokens (usually words or subwords).
+
+- Attention mechanisms: Grasp the theory behind attention mechanisms, including self-attention and scaled dot-product attention, which allows the model to focus on different parts of the input when producing an output.
+
+- Text generation: Learn about the different ways the model can generate output sequences. Common strategies include greedy decoding, beam search, top-k sampling, and nucleus sampling.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+2. Building an instruction dataset
+
+While it's easy to find raw data from Wikipedia and other websites, it's difficult to collect pairs of instructions and answers in the wild. Like in traditional machine learning, the quality of the dataset will directly influence the quality of the model, which is why it might be the most important component in the fine-tuning process.
+
+- [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)-like dataset: Generate synthetic data from scratch with the OpenAI API (GPT). You can specify seeds and system prompts to create a diverse dataset.
+
+- Advanced techniques: Learn how to improve existing datasets with [Evol-Instruct](https://arxiv.org/abs/2304.12244), how to generate high-quality synthetic data like in the [Orca](https://arxiv.org/abs/2306.02707) and [phi-1](https://arxiv.org/abs/2306.11644) papers.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Filtering data: Traditional techniques involving regex, removing near-duplicates, focusing on answers with a high number of tokens, etc.
+
+- Prompt templates: There's no true standard way of formatting instructions and answers, which is why it's important to know about the different chat templates, such as [ChatML](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-ml), [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html), etc.
+
+3. Pre-training models
+
+Pre-training is a very long and costly process, which is why this is not the focus of this course. It's good to have some level of understanding of what happens during pre-training, but hands-on experience is not required.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Data pipeline: Pre-training requires huge datasets (e.g., [Llama 2](https://arxiv.org/abs/2307.09288) was trained on 2 trillion tokens) that need to be filtered, tokenized, and collated with a pre-defined vocabulary.
+
+- Causal language modeling: Learn the difference between causal and masked language modeling, as well as the loss function used in this case. For efficient pre-training, learn more about [Megatron-LM](https://github.com/NVIDIA/Megatron-LM) or [gpt-neox](https://github.com/EleutherAI/gpt-neox).
+
+- Scaling laws: The [scaling laws](https://arxiv.org/pdf/2001.08361.pdf) describe the expected model performance based on the model size, dataset size, and the amount of compute used for training.
+
+- High-Performance Computing: HPC is fundamental if you're planning to create your own LLM from scratch.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+4. Supervised Fine-Tuning
+
+Pre-trained models are only trained on a next-token prediction task, which is why they're not helpful assistants. SFT allows you to tweak them to respond to instructions. Moreover, it allows you to fine-tune your model on any data (private, not seen by GPT-4, etc.) and use it without having to pay for an API like OpenAI's.
+
+- Full fine-tuning: Full fine-tuning refers to training all the parameters in the model. It is not an efficient technique, but it produces slightly better results.
+
+- [LoRA](https://arxiv.org/abs/2106.09685): A parameter-efficient technique (PEFT) based on low-rank adapters. Instead of training all the parameters, we only train these adapters.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- [QLoRA](https://arxiv.org/abs/2305.14314): Another PEFT based on LoRA, which also quantizes the weights of the model in 4 bits and introduce paged optimizers to manage memory spikes. Combine it with [Unsloth](https://github.com/unslothai/unsloth) to run it efficiently on a free Colab notebook.
+
+- [Axolotl](https://github.com/OpenAccess-AI-Collective/axolotl): A user-friendly and powerful fine-tuning tool that is used in a lot of state-of-the-art open-source models.
+
+- [DeepSpeed](https://www.deepspeed.ai/): Efficient pre-training and fine-tuning of LLMs for multi-GPU and multi-node settings (implemented in Axolotl).
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+5. Preference Alignment
+
+After supervised fine-tuning, RLHF is a step used to align the LLM's answers with human expectations. The idea is to learn preferences from human (or artificial) feedback, which can be used to reduce biases, censor models, or make them act in a more useful way. It is more complex than SFT and often seen as optional.
+
+- Preference datasets: These datasets typically contain several answers with some kind of ranking, which makes them more difficult to produce than instruction datasets.
+
+- [Proximal Policy Optimization](https://arxiv.org/abs/1707.06347): This algorithm leverages a reward model that predicts whether a given text is highly ranked by humans. This prediction is then used to optimize the SFT model with a penalty based on KL divergence.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- [Direct Preference Optimization](https://arxiv.org/abs/2305.18290): DPO simplifies the process by reframing it as a classification problem. It uses a reference model instead of a reward model (no training needed) and only requires one hyperparameter, making it more stable and efficient.
+
+6. Evaluation
+
+Evaluating LLMs is an undervalued part of the pipeline, which is time-consuming and moderately reliable. Your downstream task should dictate what you want to evaluate, but always remember Goodhart's law: *"When a measure becomes a target, it ceases to be a good measure."*
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Traditional metrics: Metrics like [perplexity](https://klu.ai/glossary/perplexity) and [BLEU score](https://en.wikipedia.org/wiki/BLEU) are not as popular as they were because they're flawed in most contexts. It is still important to understand them and when they can be applied.
+
+- General benchmarks: Based on the [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness), the [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) is the main benchmark for general-purpose LLMs (like ChatGPT). There are other popular benchmarks like [BigBench](https://github.com/google/BIG-bench), [MT-Bench](https://arxiv.org/abs/2306.05685), etc.
+
+- Task-specific benchmarks: Tasks like summarization, translation, and question answering have dedicated benchmarks, metrics, and even subdomains (medical, financial, etc.), such as [PubMedQA](https://pubmedqa.github.io/) for biomedical question answering.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Human evaluation: The most reliable evaluation is the acceptance rate by users or comparisons made by humans. Logging user feedback in addition to the chat traces (e.g., using [LangSmith](https://docs.smith.langchain.com/evaluation/capturing-feedback)) helps to identify potential areas for improvement.
+
+7. Quantization
+
+Quantization is the process of converting the weights (and activations) of a model using a lower precision. For example, weights stored using 16 bits can be converted into a 4-bit representation. This technique has become increasingly important to reduce the computational and memory costs associated with LLMs.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Base techniques: Learn the different levels of precision (FP32, FP16, INT8, etc.) and how to perform naïve quantization with absmax and zero-point techniques.
+
+- [GGUF](https://huggingface.co/docs/hub/en/gguf) and [llama.cpp](https://github.com/ggerganov/llama.cpp): Originally designed to run on CPUs, llama.cpp and the GGUF format have become the most popular tools to run LLMs on consumer-grade hardware.
+
+- [GPTQ](https://arxiv.org/abs/2210.17323) and [EXL2](https://github.com/turboderp/exllamav2): GPTQ and, more specifically, the EXL2 format offer an incredible speed but can only run on GPUs. Models also take a long time to be quantized.
+
+- [AWQ](https://arxiv.org/abs/2306.00978): This new format is more accurate than GPTQ (lower perplexity) but uses a lot more VRAM and is not necessarily faster.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+8. New Trends
+
+- Positional embeddings: Learn how LLMs encode positions, especially relative positional encoding schemes like [RoPE](https://arxiv.org/abs/2104.09864). Implement [YaRN](https://arxiv.org/abs/2309.00071) (multiplies the attention matrix by a temperature factor) or [ALiBi](https://arxiv.org/abs/2108.12409) (attention penalty based on token distance) to extend the context length.
+
+- Model merging: Merging trained models has become a popular way of creating performant models without any fine-tuning. The popular [mergekit](https://github.com/cg123/mergekit) library implements the most popular merging methods, like SLERP, [DARE](https://arxiv.org/abs/2311.03099), and [TIES](https://arxiv.org/abs/2311.03099).
+
+---
+transition: slide-left
+layout: image-right
+image: llm-scientist-roadmap.png
+backgroundSize: contain
+---
+
+- Mixture of Experts: [Mixtral](https://arxiv.org/abs/2401.04088) re-popularized the MoE architecture thanks to its excellent performance. In parallel, a type of frankenMoE emerged in the OSS community by merging models like [Phixtral](https://huggingface.co/mlabonne/phixtral-2x2_8), which is a cheaper and performant option.
+
+- Multimodal models: These models (like [CLIP](https://openai.com/research/clip), [Stable Diffusion](https://stability.ai/stable-image), or [LLaVA](https://llava-vl.github.io/)) process multiple types of inputs (text, images, audio, etc.) with a unified embedding space, which unlocks powerful applications like text-to-image.
+
+---
+transition: slide-up
+layout: image-right
+image: /llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+# LLM Engineer Roadmap
+
+This roadmap focuses on learning how to build LLM-powered applications that can be used in production, with a focus on augmenting models and deploying them.
+
+1. Running LLMs
+
+Running LLMs can be difficult due to high hardware requirements. Depending on your use case, you might want to simply consume a model through an API (like GPT-4) or run it locally. In any case, additional prompting and guidance techniques can improve and constrain the output for your applications.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- LLM APIs: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs ([OpenAI](https://platform.openai.com/), [Google](https://cloud.google.com/vertex-ai/docs/generative-ai/learn/overview), [Anthropic](https://docs.anthropic.com/claude/reference/getting-started-with-the-api), [Cohere](https://docs.cohere.com/docs), etc.) and open-source LLMs ([OpenRouter](https://openrouter.ai/), [Hugging Face](https://huggingface.co/inference-api), [Together AI](https://www.together.ai/), etc.).
+
+- Open-source LLMs: The [Hugging Face Hub](https://huggingface.co/models) is a great place to find LLMs. You can directly run some of them in [Hugging Face Spaces](https://huggingface.co/spaces), or download and run them locally in apps like [LM Studio](https://lmstudio.ai/) or through the CLI with [llama.cpp](https://github.com/ggerganov/llama.cpp) or [Ollama](https://ollama.ai/).
+
+- Prompt engineering: Common techniques include zero-shot prompting, few-shot prompting, chain of thought, and ReAct. They work better with bigger models, but can be adapted to smaller ones.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Structuring outputs: Many tasks require a structured output, like a strict template or a JSON format. Libraries like [LMQL](https://lmql.ai/), [Outlines](https://github.com/outlines-dev/outlines), [Guidance](https://github.com/guidance-ai/guidance), etc. can be used to guide the generation and respect a given structure.
+
+2. Building a Vector Storage
+
+Creating a vector storage is the first step to build a Retrieval Augmented Generation (RAG) pipeline. Documents are loaded, split, and relevant chunks are used to produce vector representations (embeddings) that are stored for future use during inference.
+
+- Ingesting documents: Document loaders can handle many formats (PDF, HTML, Markdown, etc.) and directly retrieve data from databases and APIs (Google Drive, etc.).
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Splitting documents: Text splitters break down documents into smaller, semantically meaningful chunks. Instead of splitting text after n characters, it's often better to split by header or recursively, with some additional metadata.
+
+- Embedding models: Embedding models convert text into vector representations. It allows for a deeper and more nuanced understanding of language, which is essential to perform semantic search.
+
+- Vector databases: Vector databases (like [Chroma](https://www.trychroma.com/), [Pinecone](https://www.pinecone.io/), [Milvus](https://milvus.io/), [FAISS](https://faiss.ai/), [Annoy](https://github.com/spotify/annoy), etc.) are designed to store embedding vectors. They enable efficient retrieval of data that is 'most similar' to a query based on vector similarity.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+3. Retrieval Augmented Generation
+
+With RAG, LLMs retrieves contextual documents from a database to improve the accuracy of their answers. RAG is a popular way of augmenting the model's knowledge without any fine-tuning.
+
+- Orchestrators: Orchestrators (like [LangChain](https://python.langchain.com/docs/get_started/introduction), [LlamaIndex](https://docs.llamaindex.ai/en/stable/), [FastRAG](https://github.com/IntelLabs/fastRAG), etc.) are popular frameworks to connect your LLMs with tools, databases, memories, etc. and augment their abilities.
+
+- Retrievers: User instructions are not optimized for retrieval. Different techniques (e.g., multi-query retriever, [HyDE](https://arxiv.org/abs/2212.10496), etc.) can be applied to rephrase/expand them and improve performance.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Memory: To remember previous instructions and answers, LLMs and chatbots like ChatGPT add this history to their context window. This buffer can be improved with summarization (e.g., using a smaller LLM), a vector store + RAG, etc.
+
+- Evaluation: We need to evaluate both the document retrieval (context precision and recall) and generation stages (faithfulness and answer relevancy). It can be simplified with tools [Ragas](https://github.com/explodinggradients/ragas/tree/main) and [DeepEval](https://github.com/confident-ai/deepeval).
+
+4. Advanced RAG
+
+Real-life applications can require complex pipelines, including SQL or graph databases, as well as automatically selecting relevant tools and APIs. These advanced techniques can improve a baseline solution and provide additional features.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Query construction: Structured data stored in traditional databases requires a specific query language like SQL, Cypher, metadata, etc. We can directly translate the user instruction into a query to access the data with query construction.
+
+- Agents and tools: Agents augment LLMs by automatically selecting the most relevant tools to provide an answer. These tools can be as simple as using Google or Wikipedia, or more complex like a Python interpreter or Jira.
+
+- Post-processing: Final step that processes the inputs that are fed to the LLM. It enhances the relevance and diversity of documents retrieved with re-ranking, [RAG-fusion](https://github.com/Raudaschl/rag-fusion), and classification.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Program LLMs: Frameworks like [DSPy](https://github.com/stanfordnlp/dspy) allow you to optimize prompts and weights based on automated evaluations in a programmatic way.
+
+<br />
+
+5. Inference optimization
+
+Text generation is a costly process that requires expensive hardware. In addition to quantization, various techniques have been proposed to maximize throughput and reduce inference costs.
+
+- Flash Attention: Optimization of the attention mechanism to transform its complexity from quadratic to linear, speeding up both training and inference.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Key-value cache: Understand the key-value cache and the improvements introduced in [Multi-Query Attention (MQA)](https://arxiv.org/abs/1911.02150) and [Grouped-Query Attention (GQA)](https://arxiv.org/abs/2305.13245).
+
+- Speculative decoding: Use a small model to produce drafts that are then reviewed by a larger model to speed up text generation.
+
+6. Deploying LLMs
+
+Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with a much lower complexity.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Local deployment: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers ([LM Studio](https://lmstudio.ai/), [Ollama](https://ollama.ai/), [oobabooga](https://github.com/oobabooga/text-generation-webui), [kobold.cpp](https://github.com/LostRuins/koboldcpp), etc.) capitalize on this advantage to power local apps.
+
+- Demo deployment: Frameworks like [Gradio](https://www.gradio.app/) and [Streamlit](https://docs.streamlit.io/) are helpful to prototype applications and share demos. You can also easily host them online, for example using [Hugging Face Spaces](https://huggingface.co/spaces).
+
+- Server deployment: Deploy LLMs at scale requires cloud (see also [SkyPilot](https://skypilot.readthedocs.io/en/latest/)) or on-prem infrastructure and often leverage optimized text generation frameworks like [TGI](https://github.com/huggingface/text-generation-inference), [vLLM](https://github.com/vllm-project/vllm/tree/main), etc.
+
+---
+transition: slide-up
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Edge deployment: In constrained environments, high-performance frameworks like [MLC LLM](https://github.com/mlc-ai/mlc-llm) and [mnn-llm](https://github.com/wangzhaode/mnn-llm/blob/master/README_en.md) can deploy LLM in web browsers, Android, and iOS.
+
+<br />
+
+7. Securing LLMs
+
+In addition to traditional security problems associated with software, LLMs have unique weaknesses due to the way they are trained and prompted.
+
+- Backdoors: Attack vectors can target the training data itsaelf, by poisoning the training data (e.g., with false information) or creating backdoors (secret triggers to change the model's behavior during inference).
+
+---
+transition: slide-left
+layout: image-right
+image: llm-engineer-roadmap.png
+backgroundSize: contain
+---
+
+- Prompt hacking: Different techniques related to prompt engineering, including prompt injection (additional instruction to hijack the model's answer), data/prompt leaking (retrieve its original data/prompt), and jailbreaking (craft prompts to bypass safety features).
+
+- Defensive measures: The best way to protect your LLM applications is to test them against these vulnerabilities (e.g., using red teaming and checks like [garak](https://github.com/leondz/garak/)) and observe them in production (with a framework like [langfuse](https://github.com/langfuse/langfuse)).
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# Thank You 🙏
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+<PoweredBySlidev />
 
-<PoweredBySlidev mt-10 />
+<div class="abs-br m-6 flex gap-2">
+  <a href="https://github.com/rifandani/catching-up-to-llm-slide" target="_blank" alt="GitHub" title="Open in GitHub"
+    class="text-xl icon-btn !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+</div>
