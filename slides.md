@@ -342,6 +342,12 @@ transition: slide-left
 
 <!--
 As we can see, from the image, as per December 2024, the crypto mindshare of "AI" is 38.47% beating "Meme", "DeFi", "Layer 2", etc. This is a great sign for LLMs and AI agents.
+
+There are another interesting concept around AI Agents, which is called Agent Orchestration. It is the process of coordinating different AI tools and systems so they work together effectively. Examples: [AWS Multi-Agent Orchestrator](https://awslabs.github.io/multi-agent-orchestrator/), [OpenAI Swarm](https://github.com/openai/swarm),
+
+Lastly, I suggest you to keep out of these following agents: 🤣
+- Fake Agent
+- Public Agent
 -->
 
 ---
