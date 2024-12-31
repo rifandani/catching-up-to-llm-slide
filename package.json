@@ -3,7 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "playwright install-deps && slidev build",
+    "prebuild": "playwright install-deps",
+    "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export"
   },
