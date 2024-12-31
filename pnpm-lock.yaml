@@ -20,10 +20,6 @@ importers:
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.2)
-    devDependencies:
-      playwright-chromium:
-        specifier: ^1.49.1
-        version: 1.49.1
 
 packages:
 
@@ -5822,8 +5818,10 @@ snapshots:
   playwright-chromium@1.49.1:
     dependencies:
       playwright-core: 1.49.1
+    optional: true
 
-  playwright-core@1.49.1: {}
+  playwright-core@1.49.1:
+    optional: true
 
   points-on-curve@0.2.0: {}
 

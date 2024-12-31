@@ -12,8 +12,8 @@ info: |
   ## Catching Up to Large Language Model (LLM)
 # enable presenter mode, can be boolean, 'dev' or 'build'
 presenter: "dev"
-download: true
-exportFilename: 'catching-up-to-llm'
+# download: true
+# exportFilename: 'catching-up-to-llm'
 highlighter: shiki
 lineNumbers: true
 # apply unocss classes to the current slide
