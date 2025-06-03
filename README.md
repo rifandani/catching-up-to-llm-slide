@@ -23,3 +23,4 @@ Learn more about Slidev at the [documentation](https://sli.dev/).
 - https://openai.com/index/planning-for-agi-and-beyond/
 - https://www.ibm.com/think/topics/llm-benchmarks
 - https://arxiv.org/abs/1706.03762 (Attention is all you need)
+- https://www.aihero.dev/

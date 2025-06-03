@@ -102,9 +102,9 @@ transition: slide-left
   <img class="object-cover h-50" alt="LLM is a function" src="/llm-is-a-function.jpeg" />
 </div>
 
-A more practical answer is that it’s a file. This 4.2 gigabyte LLM file called `Vicuna 7B`. If we open the file, it’s just numbers. These things are giant binary blobs of numbers. Anything we do with them involves vast amounts of matrix multiplication, that’s it.
+A more practical answer is that it's a file. This 4.2 gigabyte LLM file called `Vicuna 7B`. If we open the file, it's just numbers. These things are giant binary blobs of numbers. Anything we do with them involves vast amounts of matrix multiplication, that's it.
 
-We can also think of a model as a function. Here we imported `llm` package. Then, we get a reference to that GGML `Vicuna` model. We can prompt it saying “The capital of France is” and it responds “Paris.” So it’s a function that can complete text and give use answers.
+We can also think of a model as a function. Here we imported `llm` package. Then, we get a reference to that GGML `Vicuna` model. We can prompt it saying "The capital of France is" and it responds "Paris." So it's a function that can complete text and give use answers.
 
 <!--
 Other file formats include:
@@ -264,7 +264,7 @@ LLM benchmarks play a crucial role in developing and enhancing models. Benchmark
 
 1. We should already have a sample data full with answers for prepared—coding challenges, math problems, real-world conversations, science questions, commonsense reasoning, translation, or supplying a task that an LLM must accomplish.
 2. We run the benchmark to evaluate model performance according to a certain metric.
-3. Once tests are done, we compute how close a model’s output resembles the expected solution or standard answer, then generates a score between 0 and 100 for particular metric.
+3. Once tests are done, we compute how close a model's output resembles the expected solution or standard answer, then generates a score between 0 and 100 for particular metric.
 
 <!--
 Key metrics for benchmarking include:
@@ -272,8 +272,8 @@ Key metrics for benchmarking include:
 - Recall, also called the sensitivity rate, quantifies the number of true positives—the actual correct predictions.
 - The F1 score blends both accuracy and recall into one metric. It considers the two measures to be of equal weight to balance out any false positives or false negatives. F1 scores range from 0 to 1, with 1 signifying excellent recall and precision.
 - Exact match is the proportion of predictions an LLM matches exactly and is a valuable criteria for translation and question answering.
-- Perplexity measures how good a model is at prediction. The lower an LLM’s perplexity score, the better it is at comprehending a task.
-- Bilingual evaluation understudy (BLEU) evaluates machine translation by computing the matching n-grams (a sequence of n-adjacent text symbols) between an LLM’s predicted translation and a human-produced translation.
+- Perplexity measures how good a model is at prediction. The lower an LLM's perplexity score, the better it is at comprehending a task.
+- Bilingual evaluation understudy (BLEU) evaluates machine translation by computing the matching n-grams (a sequence of n-adjacent text symbols) between an LLM's predicted translation and a human-produced translation.
 - Recall-oriented understudy for gisting evaluation (ROUGE) evaluates text summarization and has several types. ROUGE-N, for instance, does similar calculations as BLEU for summaries, while ROUGE-L computes the longest common subsequence between the predicted summary and the human-produced summary.
 
 Meanwhile, human evaluation involves qualitative metrics such as coherence, relevance and semantic meaning. Human assessors examining and scoring an LLM can make for a more nuanced assessment, but it can be labor intensive, subjective and time consuming. Therefore, a balance of both quantitative and qualitative metrics is needed.
@@ -334,7 +334,7 @@ Like electricity or oil, inference requires sophisticated market infrastructure 
 transition: slide-left
 ---
 
-6. ***Fine-tuned domain-specific LLMs***: [Gartner Poll]((https://research.aimultiple.com/future-of-large-language-models/#easy-footnote-bottom-4-656554)) finds that 70% of firms are investing in generative AI research to incorporate it into their business strategies. Google, Microsoft, and Meta are developing their own proprietary, customized models to provide their customers with a unique and personalized experience. These specialized LLMs can result in fewer hallucinations and higher accuracy by leveraging: domain-specific pre-training, model alignment, and supervised fine-tuning. Examples like `BloombergGPT` for finance, and `Google’s Med-Palm 2` for medical healthcare.
+6. ***Fine-tuned domain-specific LLMs***: [Gartner Poll]((https://research.aimultiple.com/future-of-large-language-models/#easy-footnote-bottom-4-656554)) finds that 70% of firms are investing in generative AI research to incorporate it into their business strategies. Google, Microsoft, and Meta are developing their own proprietary, customized models to provide their customers with a unique and personalized experience. These specialized LLMs can result in fewer hallucinations and higher accuracy by leveraging: domain-specific pre-training, model alignment, and supervised fine-tuning. Examples like `BloombergGPT` for finance, and `Google's Med-Palm 2` for medical healthcare.
 
 7. ***AI Agents***: With improved reasoning abilities, faster and cheaper inference, multimodality, and higher context length, AI agents will be able to take on more complex tasks, become much more autonomous, making better decisions and solving complex problems. Recently, AI agents also becoming popular in Decentralized Web3 / Crypto ecosystems. New projects keep on emerging like [Goatseus Maximus](https://goatchan.xyz/) (behind [Truth Terminal](https://truthterminal.wiki/)), [aixbt](https://x.com/aixbt_agent), [Zerebro](https://x.com/0xzerebro), [ELIZA](https://elizawakesup.ai/), etc are the examples.
 
@@ -392,9 +392,9 @@ timeline
 ```
 
 <!--
-ELIZA was the world’s first chatbot, designed by MIT researcher Joseph Weizenbaum. Eliza marked the beginning of research into natural language processing (NLP), providing the foundation for future, more complex LLMs.
+ELIZA was the world's first chatbot, designed by MIT researcher Joseph Weizenbaum. Eliza marked the beginning of research into natural language processing (NLP), providing the foundation for future, more complex LLMs.
 
-OpenAI was founded: mainly doing Atari game demos using reinforcement learning. The demos were pretty cool—computers figuring out how to play games based just on the visuals shown on the screen. This represented the state of the art at the time, but it wasn’t language related -> https://openai.com/blog/introducing-openai
+OpenAI was founded: mainly doing Atari game demos using reinforcement learning. The demos were pretty cool—computers figuring out how to play games based just on the visuals shown on the screen. This represented the state of the art at the time, but it wasn't language related -> https://openai.com/blog/introducing-openai
 
 Google Brain released Attention Is All You Need, a paper describing the Transformer architecture. It was ignored my almost everyone, including many people at OpenAI... but one researcher there, Alec Radford, realized its importance with regards to language models due to the way it could scale training across multiple machines -> https://arxiv.org/abs/1706.03762
 
@@ -415,7 +415,7 @@ timeline
   2021 : in January, OpenAI released "DALL-E"
        : in July, OpenAI released "Codex"
        : in August, Microsoft released "Github Copilot"
-  2022 : in May, The “Let’s think step by step” paper by Kojima Takeshi
+  2022 : in May, The "Let's think step by step" paper by Kojima Takeshi
        : in November, OpenAI released "ChatGPT"
   2023 : in January, Microsoft invest ~$10B into OpenAI
        : in March, OpenAI released "GPT-4"
@@ -433,7 +433,7 @@ OpenAI introduced Codex as a separate and more focused model for code generation
 
 Microsoft released Github Copilot which is powered by OpenAI Codex.
 
-“Let’s think step by step” paper found that LLM, without any specific examples, can solve complicated problems by taking them step-by-step. It's like asking a model to "think out loud" by breaking a problem down. This approach, called "chain of thought prompting", shows significant improvement in performance compared to just asking for the answer directly. This ability of the model comes about as a surprising benefit of the large models, without directly programming this "reasoning" capability.
+"Let's think step by step" paper found that LLM, without any specific examples, can solve complicated problems by taking them step-by-step. It's like asking a model to "think out loud" by breaking a problem down. This approach, called "chain of thought prompting", shows significant improvement in performance compared to just asking for the answer directly. This ability of the model comes about as a surprising benefit of the large models, without directly programming this "reasoning" capability.
 
 When ChatGPT released, everything goes wild. Everyone was talking about it (FOMO).
 
@@ -932,6 +932,708 @@ backgroundSize: contain
 - Prompt hacking: Different techniques related to prompt engineering, including prompt injection (additional instruction to hijack the model's answer), data/prompt leaking (retrieve its original data/prompt), and jailbreaking (craft prompts to bypass safety features).
 
 - Defensive measures: The best way to protect your LLM applications is to test them against these vulnerabilities (e.g., using red teaming and checks like [garak](https://github.com/leondz/garak/)) and observe them in production (with a framework like [langfuse](https://github.com/langfuse/langfuse)).
+
+---
+transition: slide-left
+layout: image
+image: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+---
+
+# LLM Engineer
+
+<!--
+The hope is that by the end of this talk, you'll be able to build your own LLM-powered applications.
+LLM Engineer or AI Engineer is an engineer who is specialized in building LLM-powered or AI applications with a focus on augmenting models and deploying them.
+-->
+
+---
+transition: slide-left
+layout: image-right
+image: https://www.boostingfactory.com/application/files/1416/9867/9916/csgo_weapon_case.jpeg
+backgroundSize: contain
+---
+
+# Software Evolving Faster than We Can Imagine
+
+🎁 Pandora Box has been opened. 
+
+<v-click>
+<span v-mark.red="1">🤖 AI is here.</span>
+</v-click>
+
+<br />
+<br />
+
+<v-click>
+The rate of change is accelerating. New developments are coming fast.
+
+We've been thinking "will we still be doing this same thing in 10 years? Or even 5 years?"
+</v-click>
+
+<v-click>
+Skeptics and doom mongers are screaming "designer is dead" or "software development is over".
+
+Who will we listen to?
+</v-click>
+
+<!--
+The reason I mentioned my worries and concerns is because I have watched the documentary of "AlphaGo".
+-->
+
+---
+transition: slide-left
+layout: image-right
+image: https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+---
+
+# Opportunity Belongs To the Builders
+
+Shipping an AI demo is easy. Chain a few API's, write a prompt, and we're ready to go.
+
+Is it? Not really.
+
+We've seen many naive AI chatbots. They leak valuable IP, private data, and piss off customers with hallucinations and biases.
+
+Getting AI right is hard. We need consistent results from an inconsistent tool. We need a deterministic results from a probabilistic model.
+
+"I need a PhD in linear algebra, calculus, and statistics."
+
+<v-click>
+Nope. The world needs <span v-mark.red="1">builders</span> instead.
+</v-click>
+
+<!--
+-->
+
+---
+transition: slide-left
+---
+
+# Focus on Building
+
+There are emerging techniques to get better results from AI's:
+
+- Prompt Engineering
+- RAG
+- Agents
+- Evals
+- Observability
+- Red Teaming
+
+We don't need to understand the low level complexities of pre-training / fine-tuning models.
+
+We can be an AI Engineer.
+
+The AI Engineer builds applications and uses AI to deliver value to their users. We care about our users. We work with the state-of-the-art tools, patterns, and practices that get the job done.
+
+<v-click>
+We <span v-mark.circle.red="1">build.</span>
+</v-click>
+
+<!--
+Prompt Engineering -> for developing and optimizing prompts to efficiently use language models (LMs) for a wide variety of applications and research topics. Prompt engineering skills help to better understand the capabilities and limitations of large language models (LLMs).
+
+RAG -> Retrieval-Augmented Generation is a technique that combines a large language model (LLM) with external data sources to improve the accuracy and relevance of the model's responses.
+
+Agents -> are software entities that can perform tasks by interacting with the environment, tools, and other agents.
+
+Evals -> are used to evaluate the performance of a model.
+
+Observability -> the ability to monitor and understand the behavior of a system.
+
+Red Teaming -> is a technique used to test the security of a system by simulating an attack.
+-->
+
+---
+transition: slide-up
+---
+
+# Use Cases
+
+Before we learn how it works, we first need to know where we're going. 
+What are LLMs actually used for these days? What utility do they have? What can we build with them?
+
+1. Unstructured Data -> Structured Data
+
+Most companies have access to a lot of unstructured data. 
+These could be transcripts from support calls, customer emails, invoices, or even just notes from meetings. 
+This data is hard to work with. It's hard to search, hard to analyze, and hard to read.
+
+The solution is to use LLMs to convert these unstructured data into structured data like json or tables. 
+Multimodal LLMs can read those, understand the patterns, and convert them into a structured format. 
+This structured format can then be used for analysis, visualization, and further research.
+
+2. Labeling and Classification
+
+LLM's can be fed an input and asked to attach labels to it, which helps in organizing and understanding the data more effectively.
+
+For example, when provided with the text, LLM's would have to classify whether or not it contained elements of either "hate speech" or "toxic content". 
+It would reply with "positive" (i.e., text contained risk signals) or "negative".
+
+<!--
+Classification systems have been around in machine learning for a long time. They usually require significant amounts of data to train. LLMs make this process easier by only requiring a simple prompt to change their behavior to a classifier. Very useful.
+
+We will see the implementation of both of these in more detail later.
+-->
+
+---
+transition: slide-left
+---
+
+3. Question Answering
+
+LLM's can be fed any question, and it will give us a response based on its training data.
+
+However, LLMs have several downsides when used as a knowledge base. 
+Their training data has a cut-off point, so it doesn't have access to up-to-date information. 
+They often can't cite sources for their answers, which makes it hard to verify their accuracy. 
+
+Therefore, connecting LLMs to external data sources is necessary for grounding. 
+This external data source could be a database, a search engine, or any API. 
+LLMs can call external services (using tools) to get the most up-to-date information.
+
+4. Agents
+
+The fact that LLMs can access external tools means that LLMs can be used to do things in the world, not just generate text.
+
+This pattern is often called an `agent`, a system that can take actions in the world, respond to user inputs, and interact with other systems.
+
+5. And many more...
+
+<!--
+We will see the implementation of both of these in more detail later.
+-->
+
+---
+transition: slide-up
+---
+
+# Mindset
+
+Building with LLMs requires a fundamental shift in how you think about software development. 
+You're no longer designing deterministic systems where inputs map to predictable outputs. 
+Instead, you're working with probabilistic systems which are inherently unpredictable. 
+To ship a great application, you need to clearly define your success criteria and build a culture of continuous improvement based on real user data.
+
+### Shipping a Perfect AI App is Hard
+
+<br />
+
+<img class="object-cover h-70" alt="How Good AI Apps Get Built" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742898012/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/How_Good_AI_Apps_Get_Built_wbdrhf?_a=BAVAZGE70" />
+
+<!--
+It's relatively simple to get a demo up and running. 
+But perfecting it (make it safe, accurate, and useful for everyone) is a different story.
+
+The journey starts with your app working with the LLM, tested it with a few examples, and it seems to be doing what you want. 
+But when you put it in front of real users, they'll interact with it in ways you never imagined. 
+This is where systematic evaluation comes in. 
+As you move up the "Data-Driven/Evals Slope," you build proper evaluation frameworks, collect data, and measure performance. 
+You're no longer relying on vibes - you're making data-driven decisions about your app's performance.
+
+The first version of your app won't be great - you simply don't have enough data yet. 
+But that's okay. 
+The real magic happens when you build a culture of continuous improvement based on real user data.
+-->
+
+---
+transition: slide-up
+---
+
+### Defining Success Criteria
+
+The first step in managing this probabilistic nature is defining what success looks like for your app. 
+In traditional software, success criteria are often straightforward - a login system either works or it doesn't. 
+But with LLM-powered apps, success is rarely binary.
+
+Let's say you're building a sentiment analysis system that classifies customer reviews. 
+What does "success" look like? 
+You need specific, measurable criteria that align with your app's purpose:
+
+- **Accuracy**: The system should correctly classify 90% of reviews as positive or negative based on human expert judgment labels ("Out of all predictions, how many were correct?").
+- **Precision**: When the system predicts "positive," it should be correct 90% of the time ("When I predict positive, how often am I right?").
+- **Recall**: The system should correctly identify 90% of all positive reviews ("Out of all actual positive cases, how many did I catch?").
+- **Response Time**: 90% of responses completed within 1000ms.
+
+The key is making these criteria specific and measurable. 
+Instead of vague "good performance" or impossible targets like 100% accuracy, use concrete numbers based on industry benchmarks. 
+Without clear, measurable success criteria, you'll never know if your changes are making things better or worse.
+
+<!--
+For a deeper dive into crafting effective success criteria, check out Anthropic's guide on defining success for LLM applications.
+https://docs.anthropic.com/en/docs/build-with-claude/define-success
+-->
+
+---
+transition: slide-left
+---
+
+### Data is the Most Valuable Asset
+
+Your app's performance is only as good as the data you collect about how it's being used. 
+But collecting data isn't enough - you need to build a data-driven culture in your organization. 
+This means making decisions based on real metrics, not gut feelings, and using that data to measure against your success criteria.
+
+Every user interaction is a data point you can use to improve your app:
+
+- **Improve Prompts**: Use successful and failed responses to refine your prompt engineering
+- **Fine-tune Models**: Collect high-quality user interactions to create training data for model fine-tuning
+- **Track Success Rates**: Monitor which features or responses users find most helpful
+- **Spot Edge Cases**: Use failures to identify and handle unexpected scenarios
+
+Start with simple feedback mechanisms like thumbs up/down buttons, then gradually build more sophisticated data collection as you learn what metrics matter most. 
+Every negative interaction becomes a learning opportunity. 
+If you can't measure it, you can't improve it.
+
+<!--
+The key isn't to eliminate uncertainty (that's impossible with LLMs), 
+but to understand and manage it through systematic evaluation. 
+Success comes from defining clear, measurable criteria and treating every user interaction as a learning opportunity.
+-->
+
+---
+transition: slide-up
+---
+
+# Evals
+
+The key tool for managing uncertainty in probababilistic systems is evals. 
+Evals are the AI engineer's unit tests. 
+They are how you get predictability from a probabilistic system. 
+
+### Why Traditional Testing is Not Enough
+
+Traditional software testing relies on deterministic relationships between inputs and outputs. 
+You write a test that says "when I call `add(2, 3)`, I expect exactly `5`." 
+The test either passes (✅) or fails (❌). 
+There's no middle ground.
+
+But with LLMs, the same input can produce different outputs each time.
+Let's say your app generates written articles. 
+You want to check that the output is good enough for production. 
+You might need to write assertions for:
+
+- **Factuality**: checking if all statements in the output are factually correct
+- **Writing style**: ensuring that the text is elegant and well-written
+- **Prompt fidelity**: ensuring that the output actually corresponds to what the user asked.
+
+These are qualitative metrics. 
+Instead of a pass/fail, they need to be represented by a score. 
+Each time you change your app, you need to know if it made the system 5% better, or 50% worse.
+
+---
+transition: slide-up
+---
+
+### Types of Evals
+
+1. Human Feedback
+
+The traditional human evaluation is often your only choice early on, when you don't have a lot of data.
+This is expensive, and time consuming - but all AI systems will rely on human input to some extent.
+
+2. Deterministic Evals
+
+```ts
+const article = writeArticleWithLLM(prompt);
+expect(article.length).toBeGreaterThan(300);
+expect(article.length).toBeLessThan(2000);
+```
+
+These are traditional pass/fail checks. 
+You would pass a wide variety of prompts into your system, and check each time if they pass these tests.
+They're simple to write, but only cover a subset of what you want to evaluate.
+
+3. LLM as a Judge
+
+Another technique is to pass the results of your prompts into another LLM, and use that LLM as a judge. 
+For example, you may want to make sure your app is telling the truth. 
+You can do that by passing your system's output into a LLM, along with some ground truth and make that LLM (judge) to score the output.
+
+<!--
+LLM-as-a-judge makes certain evaluations possible - but at a cost, use it sparingly.
+-->
+
+---
+transition: slide-up
+---
+
+4. Scoring Metrics
+
+These are automated, quantitative measures that assign numerical scores to LLM outputs. 
+Unlike deterministic evals, they don't just pass or fail - they give you a spectrum of quality.
+
+<img class="object-cover h-100" alt="Scoring Metrics" src="/scoring-metrics.png" />
+
+<!--
+We will see the implementation of these in more detail later.
+-->
+
+---
+transition: slide-left
+---
+
+### Improving Evals
+
+You need to make sure that your evals are representative of the data your system will see in production.
+If you're building a classifier, you need to make sure your evals cover all the edge cases your system will see.
+This means it's crucial to build in observability and feedback systems into your application.
+
+<img class="object-cover h-70" alt="Improving Evals" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742902084/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/It_s_The_Evals_Stupid_otd3h5?_a=BAVAZGE70" />
+
+They should be the center of your feedback loop. 
+As more users use your app (distribution), they'll give you more data (usage). 
+You can use this data to improve your app (data), and then run your evals again (evals).
+These evals let you respond to new techniques and models, and put you on a constant path of improvement.
+
+<!--
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Vercel's AI SDK
+
+There's a pretty common problem when you're building AI-powered apps.
+Let's say you're using OpenAI as LLM provider.
+You build all of this code to talk to OpenAI's API.
+
+But then one day you think, "Oh, why don't we try Anthropic instead?"
+But there's a problem: Anthropic's API is a little bit different.
+This is especially true for things like streaming, structured outputs, and tool calling.
+
+In the end, you'll have to write an unified API which abstracts the differences between LLM providers.
+Now, what if we also want to try a different provider like Google Gemini?
+We'll have to refactor the abstraction again, to support the new provider.
+This is where Vercel's AI SDK comes in.
+
+The AI SDK basically handles that abstraction for you.
+Not only that, it helps you stream text, work with structured outputs, tool calling, and even handle agents seamlessly.
+Of course, Langchain is also a great library for this.
+But, AI SDK also has a framework-agnostic UI library to help you build interactive chat, completion, and assistant applications with ease.
+
+<!--
+There are three different parts of the AI SDK.
+You have the AI SDK Core which is used for backend, so Node, Deno, Bun, whatever.
+You also have the AI SDK UI which is a set of front-end hooks and components for linking up to an AI SDK backend.
+There's also an AI SDK RSC framework, for building with React Server Components (deprecated, instead use UI).
+-->
+
+---
+transition: slide-left
+---
+
+# Installation
+
+```bash
+# core package
+npm install ai
+
+# choose your LLM providers
+npm install @ai-sdk/google
+npm install @ai-sdk/openai
+npm install @ai-sdk/anthropic
+```
+
+### Define Models
+
+```ts
+import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
+
+const gFlash20 = google('gemini-2.0-flash-001');
+const oai4o = openai('gpt-4o');
+// and many more providers...
+```
+
+<!--
+-->
+
+---
+transition: slide-left
+---
+
+# Generate Text
+
+````md magic-move {lines: true}
+```ts {*|3,9,12|4,13,14|5,12,17|6,20|7,22|*}
+/**
+ * Steps:
+ * - take the generateText function that you import from ai 
+ * - pass it a prompt and a model from before 
+ * - and you get back an object that contains some text response
+ * - call the function with a prompt
+ * - log the response
+ */
+import { generateText } from "ai";
+
+export const answerMyQuestion = async (prompt: string) => {
+  const { text } = await generateText({
+    model: gFlash20, // use the model you defined earlier
+    prompt,
+  });
+
+  return text;
+};
+
+const answer = await answerMyQuestion("what is the chemical formula for water?");
+
+console.log(answer);
+```
+````
+
+<!--
+literally the simplest setup that the AI SDK supports: generating text
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Generate Object
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Streaming Text, Custom Data, Structured Outputs
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Generate Image
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Multimodal
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Embeddings
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Context/Prompt Caching
+
+Demo
+
+---
+transition: slide-left
+layout: center
+---
+
+# Tool Calling
+
+<img class="object-cover h-100" alt="Tool Calling" src="/tool-call.png" />
+
+<!--
+Function calling lets you connect models to external tools and APIs.
+Instead of generating text responses, the model understands when to call specific functions and provides the necessary parameters to execute real-world actions.
+This allows the model to act as a bridge between natural language and real-world actions and data.
+
+- Augment Knowledge: Access information from external sources like databases, APIs, and knowledge bases.
+- Extend Capabilities: Use external tools to perform computations and extend the limitations of the model, such as using a calculator or creating charts.
+- Take Actions: Interact with external systems using APIs, such as scheduling appointments, creating invoices, sending emails, or controlling smart home devices
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Agents
+
+<img class="object-cover h-100" alt="Tool Calling" src="/tool-call-feedback.png" />
+
+<!--
+Aside from tool calls to do things in the world,
+LLMs can also react to the information they receive from their tools.
+In other words, the tool results are passed into the LLM to update its context.
+This can create a powerful feedback loop where the LLM is continually grounding itself in the real world.
+And this feedback loop is what most people, including Anthropic, call "agents".
+-->
+
+---
+transition: slide-left
+layout: image
+image: https://huggingface.co/blog/assets/tiny-agents/thumbnail.jpg
+backgroundSize: contain
+---
+
+<!--
+Bringing back meme-driven presentation
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# Building Effective Agents
+
+"Agent" can be defined in several ways. 
+Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. 
+Others use the term to describe more prescriptive implementations that follow predefined workflows. 
+At Anthropic, they categorize all these variations as agentic systems, but draw an important architectural distinction between **workflows** and **agents**:
+
+- **Workflows** are systems where LLMs and tools are orchestrated through predefined code paths.
+- **Agents**, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
+
+<!--
+Based on Anthropic blog post: https://www.anthropic.com/engineering/building-effective-agents
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+### Workflow: Prompt chaining
+
+<img class="object-cover h-100" alt="Workflow: Prompt chaining" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7418719e3dab222dccb379b8879e1dc08ad34c78-2401x1000.png&w=3840&q=75" />
+
+<!--
+Prompt chaining decomposes a task into a sequence of steps, where each LLM call processes the output of the previous one.
+You can add programmatic checks (see "gate” in the diagram below) on any intermediate steps to ensure that the process is still on track.
+
+When to use this workflow: 
+This workflow is ideal for situations where the task can be easily and cleanly decomposed into fixed subtasks. 
+The main goal is to trade off latency for higher accuracy, by making each LLM call an easier task.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+### Workflow: Routing
+
+<img class="object-cover h-100" alt="Workflow: Routing" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5c0c0e9fe4def0b584c04d37849941da55e5e71c-2401x1000.png&w=3840&q=75" />
+
+<!--
+Routing classifies an input and directs it to a specialized followup task. 
+This workflow allows for separation of concerns, and building more specialized prompts. 
+Without this workflow, optimizing for one kind of input can hurt performance on other inputs.
+
+When to use this workflow: 
+Routing works well for complex tasks where there are distinct categories that are better handled separately, 
+and where classification can be handled accurately, either by an LLM or a more traditional classification model/algorithm.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+### Workflow: Parallelization
+
+<img class="object-cover h-100" alt="Workflow: Parallelization" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F406bb032ca007fd1624f261af717d70e6ca86286-2401x1000.png&w=3840&q=75" />
+
+<!--
+LLMs can sometimes work simultaneously on a task and have their outputs aggregated programmatically.
+This workflow, parallelization, manifests in two key variations:
+
+- Sectioning: Breaking a task into independent subtasks run in parallel.
+- Voting: Running the same task multiple times to get diverse outputs.
+
+When to use this workflow: 
+Parallelization is effective when the divided subtasks can be parallelized for speed, or when multiple perspectives or attempts are needed for higher confidence results. 
+For complex tasks with multiple considerations, LLMs generally perform better when each consideration is handled by a separate LLM call, allowing focused attention on each specific aspect.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+### Workflow: Parallelization
+
+<img class="object-cover h-100" alt="Workflow: Parallelization" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8985fc683fae4780fb34eab1365ab78c7e51bc8e-2401x1000.png&w=3840&q=75" />
+
+<!--
+In the orchestrator-workers workflow, a central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results.
+
+When to use this workflow: 
+This workflow is well-suited for complex tasks where you can’t predict the subtasks needed (in coding, for example, the number of files that need to be changed and the nature of the change in each file likely depend on the task). 
+Whereas it’s topographically similar, the key difference from parallelization is its flexibility—subtasks aren't pre-defined, but determined by the orchestrator based on the specific input.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+### Workflow: Evaluator-optimizer
+
+<img class="object-cover h-100" alt="Workflow: Parallelization" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F14f51e6406ccb29e695da48b17017e899a6119c7-2401x1000.png&w=3840&q=75" />
+
+<!--
+In the evaluator-optimizer workflow, one LLM call generates a response while another provides evaluation and feedback in a loop.
+
+When to use this workflow: 
+This workflow is particularly effective when we have clear evaluation criteria, and when iterative refinement provides measurable value. 
+The two signs of good fit are, first, that LLM responses can be demonstrably improved when a human articulates their feedback; and second, that the LLM can provide such feedback. 
+This is analogous to the iterative writing process a human writer might go through when producing a polished document.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Web Search
+
+Demo
+
+<!--
+Make sure the LLM you're using supports web search tool natively.
+Otherwise, you'll have to use a custom tool to do it.
+
+Some web search thrid-party services are:
+- Google
+- Brave
+- Serper
+- Exa
+- Firecrawl
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# RAG (Retrieval-Augmented Generation)
+
+Demo
+
+<!--
+RAG -> Retrieval-Augmented Generation is a technique that combines a large language model (LLM) with external data sources to improve the accuracy and relevance of the model's responses.
+-->
 
 ---
 layout: center
