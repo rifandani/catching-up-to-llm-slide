@@ -24,3 +24,5 @@ Learn more about Slidev at the [documentation](https://sli.dev/).
 - https://www.ibm.com/think/topics/llm-benchmarks
 - https://arxiv.org/abs/1706.03762 (Attention is all you need)
 - https://www.aihero.dev/
+- https://www.epicai.pro/
+- https://elenacross7.medium.com/%EF%B8%8F-the-s-in-mcp-stands-for-security-91407b33ed6b
