@@ -1706,6 +1706,8 @@ transition: slide-up
 
 # MCP is Not Secure by Default
 
+<br />
+
 If you've plugged your agents into arbitrary MCP servers without reading the code — congrats, you may have just opened a free access into your shell, secrets, or infrastructure. 
 There are some actual security risks currently lurking across MCP implementations.
 
@@ -1819,16 +1821,73 @@ AI SDK UI provides robust abstractions that simplify the complex tasks of managi
 -->
 
 ---
+transition: slide-left
+layout: center
+---
+
+# Observability
+
+<img class="object-cover h-80" alt="Observability" src="https://arize.com/wp-content/uploads/2021/05/observability-iceberg-2.png" />
+
+<!--
+Unlike traditional applications, LLMs are probabilistic and can behave unpredictably.
+One simple change in the prompt can cause a completely different output and cause a lot of problems.
+Observability is the practice of quickly finding out what the problem is and getting to the root cause by understanding the internal state of a system.
+-->
+
+---
 transition: slide-up
+layout: center
+---
+
+# Open Telemetry (OTel)
+
+<img class="object-cover h-80" alt="Open Telemetry" src="/otel.png" />
+
+<!--
+To make a system observable, it must be - quote unquote "instrumented". 
+
+First, you have your infrastructure or applications that you want to observe.
+You'll collect data from it and send the data to the observability backend of your choosing.
+Then connect the backend to a visualization front end where you can query and use the data that you're interested in.
+
+The most common types of data collected for observability are metrics, logs, and traces (telemetry data).
+Getting the telemetry data into the backend is an important part of understanding your infrastructure or applications.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+<img class="object-cover" alt="Open Telemetry 2" src="/otel-2.png" />
+
+<!--
+This is where OTel comes in.
+OTel is an open source observability framework to facilitate the process of generating, collecting, managing, and exporting telemetry data.
+This process is known as instrumentation.
+-->
+
+---
+transition: slide-left
+layout: center
 ---
 
 # Evals
 
+<!--
 The key tool for managing uncertainty in probababilistic systems is evals. 
 Evals are the AI engineer's unit tests. 
 They are how you get predictability from a probabilistic system. 
+-->
 
-### Why Traditional Testing is Not Enough
+---
+transition: slide-left
+---
+
+# Why Traditional Testing is Not Enough
+
+<br />
 
 Traditional software testing relies on deterministic relationships between inputs and outputs. 
 You write a test that says "when I call `add(2, 3)`, I expect exactly `5`." 
@@ -1852,7 +1911,7 @@ Each time you change your app, you need to know if it made the system 5% better,
 transition: slide-up
 ---
 
-### Types of Evals
+# Types of Evals
 
 1. Human Feedback
 
@@ -1882,7 +1941,7 @@ LLM-as-a-judge makes certain evaluations possible - but at a cost, use it sparin
 -->
 
 ---
-transition: slide-up
+transition: slide-left
 ---
 
 4. Scoring Metrics
@@ -1899,13 +1958,13 @@ Unlike deterministic evals, they don't just pass or fail - they give you a spect
 transition: slide-left
 ---
 
-### Improving Evals
+# Improving Evals
 
 You need to make sure that your evals are representative of the data your system will see in production.
 If you're building a classifier, you need to make sure your evals cover all the edge cases your system will see.
 This means it's crucial to build in observability and feedback systems into your application.
 
-<img class="object-cover h-70" alt="Improving Evals" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742902084/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/It_s_The_Evals_Stupid_otd3h5?_a=BAVAZGE70" />
+<img class="object-cover h-65" alt="Improving Evals" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742902084/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/It_s_The_Evals_Stupid_otd3h5?_a=BAVAZGE70" />
 
 They should be the center of your feedback loop. 
 As more users use your app (distribution), they'll give you more data (usage). 
