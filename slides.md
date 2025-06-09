@@ -1833,6 +1833,8 @@ layout: center
 Unlike traditional applications, LLMs are probabilistic and can behave unpredictably.
 One simple change in the prompt can cause a completely different output and cause a lot of problems.
 Observability is the practice of quickly finding out what the problem is and getting to the root cause by understanding the internal state of a system.
+
+Site Reliability Engineering (SRE) is one of the engineering disciplines that focuses on making systems observable and to ensure they're reliable and efficient.
 -->
 
 ---
@@ -1840,9 +1842,83 @@ transition: slide-up
 layout: center
 ---
 
-# Open Telemetry (OTel)
+# Three Pillars of Observability
 
-<img class="object-cover h-80" alt="Open Telemetry" src="/otel.png" />
+<img class="object-cover h-80" alt="Three Pillars of Observability" src="https://www.eginnovations.com/blog/wp-content/uploads/2023/04/Three-Pillars-03.webp" />
+
+<!--
+The three pillars of observability include metrics, logs, and traces. 
+These data points combine to provide insights into the health of complex systems and can help diagnose and resolve performance issues and security functions.
+
+- **Metrics** provide performance data through quantitative measurements.
+- **Logs** offer archived records of historical events and errors of a system.
+- **Traces** follow request or transaction paths to help identify root causes.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# Metrics
+
+<img class="object-cover h-100" alt="Metrics" src="https://grafana.com/media/docs/tempo/intro/exemplar-metric-totrace.png" />
+
+<!--
+Metrics are aggregations over a period of time of numeric data about your infrastructure or application. 
+Examples include: system error rate, and request rate for a given service.
+
+Metrics provide a high level picture of the state of a system. 
+Metrics are the foundation of alerts because metrics are numeric values and can be compared against known thresholds. 
+Alerts constantly run in the background and trigger when a value is outside of an expected range. 
+This is typically the first sign that something is going on and are where discovery first starts.
+Metrics indicate that something is happening.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# Traces
+
+<img class="object-cover h-100" alt="Traces" src="https://encore.dev/assets/blog/tracing-data-model.png" />
+
+<!--
+Tracing is a method of observing requests, what happens at each step or action and how long does it take as they propagate / move through distributed environments.
+Traces provide the map "the where" something is going wrong. 
+Without tracing, finding the root cause of performance problems in a distributed system can be challenging.
+
+A trace is made of one or more spans.
+A span represents a unit of work or operation.
+The first span represents the root span and each root span represents a request from start to finish. 
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Logs
+
+<img class="object-cover h-110" alt="Logs" src="https://grafana.com/media/docs/tempo/intro/loki-trace-to-logspng.png" />
+
+<!--
+Logs provide an audit trail of activity from a single process that create informational context. 
+Logs act as atomic events, detailing what’s occurring in the services in your application. 
+Whereas metrics are quantitative (numeric) and structured, logs are qualitative (textual) and unstructured or semi-structured. 
+They offer a higher degree of detail, but also at the expense of creating significantly higher data volumes. 
+Logs let you know what’s happening to your application.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# OpenTelemetry (OTel)
+
+<img class="object-cover h-100" alt="Open Telemetry" src="/otel.png" />
 
 <!--
 To make a system observable, it must be - quote unquote "instrumented". 
@@ -1864,8 +1940,20 @@ layout: center
 
 <!--
 This is where OTel comes in.
-OTel is an open source observability framework to facilitate the process of generating, collecting, managing, and exporting telemetry data.
+OTel is an open source observability framework to facilitate the process of generating, collecting, managing (aggregating, filtering, processing, etc), and exporting telemetry data (metrics, logs, and traces).
 This process is known as instrumentation.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# OpenTelemetry
+
+Demo
+
+<!--
 -->
 
 ---
