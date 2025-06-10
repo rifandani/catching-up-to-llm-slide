@@ -1963,10 +1963,15 @@ layout: center
 
 # Evals
 
+<img class="object-cover h-100" alt="Evals" src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F79c09779-67d4-4079-ae16-79d826f2a5ad_1600x781.png" />
+
 <!--
 The key tool for managing uncertainty in probababilistic systems is evals. 
 Evals are the AI engineer's unit tests. 
 They are how you get predictability from a probabilistic system. 
+
+Usually, when evaluating LLMs, we must consider various aspects, including AI Quality, Safety, Governance, and Ethics. 
+These dimensions help us create a comprehensive understanding of an LLM's performance and potential impact.
 -->
 
 ---
@@ -2043,21 +2048,104 @@ Unlike deterministic evals, they don't just pass or fail - they give you a spect
 -->
 
 ---
-transition: slide-left
+transition: slide-up
+layout: center
 ---
 
 # Improving Evals
 
+<img class="object-cover h-100" alt="Improving Evals" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742902084/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/It_s_The_Evals_Stupid_otd3h5?_a=BAVAZGE70" />
+
+<!--
 You need to make sure that your evals are representative of the data your system will see in production.
 If you're building a classifier, you need to make sure your evals cover all the edge cases your system will see.
 This means it's crucial to build in observability and feedback systems into your application.
-
-<img class="object-cover h-65" alt="Improving Evals" src="https://res.cloudinary.com/total-typescript/image/upload/fl_sanitize/c_limit,w_1920/f_svg/q_100/v1742902084/aihero.dev/ai-roadmap/what-are-llms-useful-for/dark/It_s_The_Evals_Stupid_otd3h5?_a=BAVAZGE70" />
 
 They should be the center of your feedback loop. 
 As more users use your app (distribution), they'll give you more data (usage). 
 You can use this data to improve your app (data), and then run your evals again (evals).
 These evals let you respond to new techniques and models, and put you on a constant path of improvement.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# Explicit Feedback
+
+<img class="object-cover h-100" alt="Thumbs up and down" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*kN-HadjI2Bc73IJ-BXy1KA.png" />
+
+<!--
+Thumbs up/down events are used to capture user feedback on specific messages or interactions with your chatbot or LLM application, with an optional textual feedback.
+This is a simple way to get feedback from your users.
+You can use this feedback to improve your evals.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+# Implicit Feedback
+
+<img class="object-cover h-100" alt="Implicit Feedback" src="/evals-implicit-feedback.png" />
+
+<!--
+Users are not really interested in providing explicit feedback, like thumbs up/down or textual feedback.
+Explicit feedback is rare.
+Detailed explicit feedback is ultra rare.
+You need to look for implicit feedback.
+You need to look for patterns in the user behavior.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+<img class="object-cover h-100" alt="Implicit Feedback 2" src="/evals-implicit-feedback-2.png" />
+
+<!--
+Another examples are like the "Share", "Export", and "Copy" buttons.
+You can use these buttons to infer the user's intent.
+This generally means that the user is happy with the output.
+
+You can also use the "Rewrite", or "Report" buttons to infer that the user is not happy with the output.
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+<img class="object-cover h-100" alt="Implicit Feedback 3" src="/evals-implicit-feedback-3.png" />
+
+<!--
+Another example is looking at the user's input prompt and the chat conversation.
+When we detect an negative sentiment (e.g. anger, frustration, cursing, etc) in the user's input prompt, like "You are wrong", "I'm not happy with your response", "That's stupid", "You are dumb", then we can infer that the user is not happy with the output.
+Otherwise, when we detect a positive sentiment (e.g. gratitude, appreciation, etc) in the user's input prompt, like "You're correct", "Thank you", "You are amazing", "That's clever", then we can infer that the user is happy with the output.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+<img class="object-cover h-100" alt="Implicit Feedback 4" src="/evals-implicit-feedback-4.png" />
+
+<!--
+Another example is when we detect that the user's input prompt is repeated, where the user is asking the same question over and over again, then we can infer that the user is not happy with the output.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Evals
+
+Demo
 
 <!--
 -->
