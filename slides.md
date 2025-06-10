@@ -1970,8 +1970,21 @@ The key tool for managing uncertainty in probababilistic systems is evals.
 Evals are the AI engineer's unit tests. 
 They are how you get predictability from a probabilistic system. 
 
-Usually, when evaluating LLMs, we must consider various aspects, including AI Quality, Safety, Governance, and Ethics. 
+Evals help us measure various aspects, such as AI Quality, Safety, Governance, and Ethics. 
 These dimensions help us create a comprehensive understanding of an LLM's performance and potential impact.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# Evals Help Answer These Questions
+
+<img class="object-cover" alt="Why Evals?" src="/evals-why.png" />
+
+<!--
+Remember, a simple change in the prompt can cause a completely different output and cause a lot of problems.
 -->
 
 ---
