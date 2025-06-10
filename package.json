@@ -2,6 +2,7 @@
   "name": "catching-up-to-llm-slide",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
