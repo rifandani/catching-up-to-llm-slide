@@ -1489,9 +1489,9 @@ transition: slide-up
 layout: center
 ---
 
-### Workflow: Parallelization
+### Workflow: Orchestrator-Workers
 
-<img class="object-cover h-100" alt="Workflow: Parallelization" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8985fc683fae4780fb34eab1365ab78c7e51bc8e-2401x1000.png&w=3840&q=75" />
+<img class="object-cover h-100" alt="Workflow: Orchestrator-Workers" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8985fc683fae4780fb34eab1365ab78c7e51bc8e-2401x1000.png&w=3840&q=75" />
 
 <!--
 In the orchestrator-workers workflow, a central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results.
@@ -1985,6 +1985,17 @@ layout: center
 
 <!--
 Remember, a simple change in the prompt can cause a completely different output and cause a lot of problems.
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+<img class="object-cover" alt="Importance of evals by OpenAI" src="/evals-openai.png" />
+
+<!--
+This is from OpenAI's "evals" repo documentation
 -->
 
 ---
