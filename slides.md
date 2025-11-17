@@ -1593,7 +1593,8 @@ layout: center
 RAG -> Retrieval-Augmented Generation is a technique that combines a large language model (LLM) with external data sources to improve the accuracy and relevance of the model's responses.
 
 In naive RAG, we do the following:
-- First, the documents are chunked into smaller pieces.
+- First, raw document are parsed to get the text content.
+- Second, the documents are chunked into smaller pieces (we don't want to feed the LLM with the whole text document). We can start by using poor man's chunking by roughly splitting chunk by characters. Or, we can use a semantic chunking so that we can preserve semantic units (e.g using `@langchain/textsplitters` or `chunkdown`).
 - Then, we might do some post-chunking clean-up, a lot of tweaking to find the right chunk size, experimentation to the right amount of overlap between document chunks, and so on.
 - After that, we embed the chunks using embedding models.
 - Then, the resulting embedded vectors are stored in a vector database.
@@ -1601,6 +1602,360 @@ In naive RAG, we do the following:
 - Then, we use a similarity search (e.g. cosine similarity or "nearest neighbor") to find the most similar vectors already stored in the database.
 - Lastly, we pass in the most similar chunks as context + the question to the LLM and generate a response to the question.
 -->
+
+---
+transition: slide-up
+layout: center
+---
+
+# RAG Strategies
+
+1. Reranking
+
+Two-stage retrieval, first is vector search (results in many candidates), then reranking model to filter top 3 which are more relevant.
+
+Pro's:
+
+- Significantly better precision
+- More knowledge 
+
+Con's:
+
+- Slightly slower than pure vector search
+- Uses more compute
+
+When to Use It:
+Use when accuracy is more important than speed. Ideal for narrowing down a large candidate set to the most relevant documents.
+
+When NOT to Use It:
+Avoid when real-time performance is critical. Skip if you have limited compute resources or very large result sets to re-rank.
+
+<!--
+There are a lot of strategies/ways to do RAG. 
+Here are some of it:
+-->
+
+---
+transition: slide-up
+layout: center
+---
+
+2. Agentic RAG
+
+AI Agent autonomously chooses between multiple retrieval tools to explore knowledge dynamically.
+
+Pro's:
+
+- Flexible, adapts to query needs automatically  
+- Can access heterogeneous data sources (SQL, files, web, vectors) intelligently
+
+Con's:
+
+- More complex
+- Less predictable behavior
+- Higher latency and cost due to multi-step reasoning and tool calls
+
+When to Use It:
+Use for complex queries requiring multiple data sources or exploration strategies. Ideal when you have diverse knowledge types (structured and unstructured).
+
+When NOT to Use It:
+Avoid for simple lookups where traditional RAG suffices. Skip when you need predictable, fast responses or have limited tool infrastructure.
+
+---
+transition: slide-up
+layout: center
+---
+
+3. Knowledge Graphs
+
+Combines vector search with graph databases (e.g. Neo4j, FalkorDB) to capture both semantic meaning and explicit relationships between entities.
+Instead of just retrieving similar text chunks, the system queries a graph of interconnected entities (nodes) and relationships (edges), providing structured, contextual information.
+
+Pro's:
+
+- Captures relationships vectors miss
+- Great for interconnected data
+
+Con's:
+
+- Slower and expensive
+- More complex
+- More maintenance
+
+When to Use It:
+Use when relationships between entities are crucial to answers. Ideal for domains with complex interconnections (healthcare, finance, research).
+
+When NOT to Use It:
+Avoid when data lacks clear entities and relationships. Skip if you need rapid prototyping without graph infrastructure investment.
+
+---
+transition: slide-up
+layout: center
+---
+
+4. Contextual Retrieval
+
+Anthropic's method: adds document-level context to each chunk before embedding.
+LLM generates 1-2 sentences explaining what the chunk discusses in relation to the whole document.
+
+Pro's:
+
+- 35-50% reduction in retrieval failures
+- Chunks are self-contained
+
+Con's:
+
+- Slower ingestion
+- Expensive (1 LLM call per chunk)
+
+When to Use It:
+Use when chunks lack standalone meaning without document context. Ideal for technical documents, financial reports, or dense reference materials.
+
+When NOT to Use It:
+Avoid when chunks are already self-contained and clear. Skip if indexing budget or time constraints are tight, or corpus updates frequently.
+
+---
+transition: slide-up
+layout: center
+---
+
+5. Query Expansion
+
+Expand a single brief query into a more detail, comprehensive version by adding context, related terms, and clarifying intent.
+Uses an LLM with a system prompt that describes how to enrich the query while maintaining the original intent.
+
+Pro's:
+
+- Improved retrieval precision by adding relevant context and specifity
+- Handles vague queries and terminologies variations effectively 
+
+Con's:
+
+- Extra LLM call per tool call
+- Adds latency
+- May over-specify an intentional simple query
+
+When to Use It:
+Use when users provide short, ambiguous, or poorly-worded queries. Ideal for keyword-based retrieval systems that need semantic variations.
+
+When NOT to Use It:
+Avoid when queries are already specific and well-formed. Skip if latency is critical or when operating under strict cost constraints.
+
+---
+transition: slide-up
+layout: center
+---
+
+6. Multi-Query RAG
+
+Generates multiple different query variations/perspectives with an LLM (e.g 3 variations), runs all searches concurrently, and deduplicates results.
+Unlike "Query Expansion" which enriches ONE query, this creates MULTIPLE distinct phrasings to capture different angles/perspectives. 
+
+Pro's:
+
+- Comprehensive coverage
+- Better recall on ambiguous queries
+
+Con's:
+
+- Higher computational cost due to multiple database queries
+- May retrieve redundant or less relevant documents if queries overlap poorly
+
+When to Use It:
+Use when user queries may have multiple valid interpretations. Ideal for improving recall on ambiguous or broad questions.
+
+When NOT to Use It:
+Avoid for very specific queries with clear intent. Skip when latency and cost are major constraints, or retrieval corpus is small.
+
+---
+transition: slide-up
+layout: center
+---
+
+7. Context-Aware Chunking
+
+Intelligent document splitting that uses semantic similarity and document structure analysis to find natural chunk boundaries, rather than naive fixed-size splitting. 
+
+Pro's:
+
+- Free and fast
+- Maintains document structure
+
+Con's:
+
+- Slightly more complex and slower than naive fixed-size splitting
+
+When to Use It:
+Use when document topics are diverse and intermingled. Ideal for complex documents where topic boundaries are important for retrieval.
+
+When NOT to Use It:
+Avoid when processing speed is critical or documents are already well-structured. Skip for homogeneous documents with consistent topics throughout.
+
+---
+transition: slide-up
+layout: center
+---
+
+8. Late Chunking
+
+Embed the full document through transformer first, then chunk the token embeddings (NOT the text itself).
+Preserves full document in each chunk's embedding.
+
+Pro's:
+
+- Maintains full document context
+- Leverages long-context (8K+ tokens) models
+
+Con's:
+
+- Requires long-context embedding models with high token limits
+- Uses more storage
+- More complex implementation
+
+When to Use It:
+Use when document context is crucial for understanding chunks. Ideal for documents where meaning depends on long-distance relationships.
+
+When NOT to Use It:
+Avoid when using standard embedding models with small context windows. Skip if documents are already short and context is local.
+
+---
+transition: slide-up
+layout: center
+---
+
+9. Hierarchical RAG
+
+Parent-child chunk relationships.
+Search small chunks for precision, return large parent chunks for context.
+
+Pro's:
+
+- Balances precision (search small) with context (return big)
+- Reduces noise in search while providing sufficient context for reasoning
+
+Con's:
+
+- Requires careful design parent-child database schema
+- Adds complexity to indexing and retrieval logic
+
+When to Use It:
+Use when small chunks match better but lack sufficient context for answers. Ideal for structured documents with natural hierarchies (sections, chapters).
+
+When NOT to Use It:
+Avoid when documents lack clear hierarchical structure. Skip if simple flat chunking provides adequate context for your use case.
+
+---
+transition: slide-up
+layout: center
+---
+
+10. Self-Reflective RAG
+
+Self-correcting search loop where the system critiques its own outputs and adapts until producing a satisfactory answer.
+1. Perform initial search
+2. LLM evaluates whether retrieved documents are relevant (1-5 scale)
+3. If score < 3, refine query or retrieves additional information when necessary and search again
+
+Pro's:
+
+- Self-correcting, improves over time
+
+Con's:
+
+- Highest latency (2-3 LLM calls)
+- Most expensive
+
+When to Use It:
+Use when answer accuracy is critical and errors are costly. Ideal for complex queries where initial retrieval may be insufficient.
+
+When NOT to Use It:
+Avoid when real-time responses are required. Skip for simple queries or when operating under strict latency/cost budgets.
+
+---
+transition: slide-up
+layout: center
+---
+
+11. Fine-tuned Embeddings
+
+Fine-tuning embedding models adapts pre-trained models to domain-specific data, improving retrieval accuracy for specialized vocabularies and contexts. Instead of using generic embeddings trained on broad data, you train the model on your specific corpus with relevant query-document pairs. This teaches the model to recognize domain jargon, relationships, and semantic patterns unique to your use case.
+
+Pro's:
+
+- Improves retrieval accuracy for specialized domains (5-10% gains typical)
+- Smaller models can outperform larger generic ones
+
+Con's:
+
+- Expensive, requires maintenance
+- Requires domain-specific training data
+
+When to Use It:
+Use when working with specialized domains (medical, legal, technical) with unique terminology. Ideal when retrieval accuracy is suboptimal with generic embeddings.
+
+When NOT to Use It:
+Avoid when working with general knowledge or common topics. Skip if you lack training data or can't afford the fine-tuning investment.
+
+---
+transition: slide-up
+layout: center
+---
+
+## 📊 Performance Comparison
+
+### Overview
+
+| #  | Strategy               | Use Case                | Pros                                   | Cons                        |
+|----|------------------------|-------------------------|----------------------------------------|-----------------------------|
+| 1  | Re-ranking             | Precision-critical      | Highly accurate results                | Slower, more compute        |
+| 2  | Agentic RAG            | Flexible retrieval needs| Autonomous tool selection              | More complex logic          |
+| 3  | Knowledge Graphs       | Relationship-heavy      | Captures connections                   | Infrastructure overhead     |
+| 4  | Contextual Retrieval   | Critical documents      | 35-49% better accuracy                 | High ingestion cost         |
+| 5  | Query Expansion        | Ambiguous queries       | Better recall, multiple perspectives   | Extra LLM call, higher cost |
+| 6  | Multi-Query            | Broad searches          | Comprehensive coverage                 | Multiple API calls          |
+| 7  | Context-Aware          | All documents           | Semantic coherence                     | Slightly slower ingestion   |
+| 8  | Late Chunking          | Context preservation    | Full document context                  | Requires long-context models|
+| 9  | Hierarchical RAG       | Complex documents       | Precision + context                    | Complex setup               |
+| 10 | Self-Reflective        | Research queries        | Self-correcting                        | Highest latency             |
+| 11 | Fine-tuned Embeddings  | Domain-specific         | Best accuracy                          | Training required           |
+
+<style>
+* {
+  font-size: 10px;
+}
+</style>
+
+---
+transition: slide-up
+layout: center
+---
+
+### Ingestion Strategies
+
+| Strategy                  | Speed   | Cost | Quality  |
+|---------------------------|---------|------|----------|
+| Simple Chunking           | ⚡⚡⚡    | $    | ⭐⭐      |
+| Context-Aware (Docling)   | ⚡⚡     | $    | ⭐⭐⭐⭐    |
+| Contextual Enrichment     | ⚡      | $$$  | ⭐⭐⭐⭐⭐   |
+| Late Chunking             | ⚡⚡     | $    | ⭐⭐⭐⭐    |
+| Hierarchical              | ⚡⚡     | $    | ⭐⭐⭐⭐    |
+
+---
+transition: slide-up
+layout: center
+---
+
+### Query Strategies
+
+| Strategy         | Speed  | Cost | Precision | Recall  |
+|------------------|----------|------|-----------|---------|
+| Standard Search  | ⚡⚡⚡      | $    | ⭐⭐⭐     | ⭐⭐⭐    |
+| Query Expansion  | ⚡⚡       | $$   | ⭐⭐⭐     | ⭐⭐⭐⭐   |
+| Multi-Query      | ⚡⚡       | $$   | ⭐⭐⭐     | ⭐⭐⭐⭐⭐  |
+| Re-ranking       | ⚡⚡       | $$   | ⭐⭐⭐⭐⭐  | ⭐⭐⭐    |
+| Agentic          | ⚡⚡       | $$   | ⭐⭐⭐⭐    | ⭐⭐⭐⭐   |
+| Self-Reflective  | ⚡        | $$$  | ⭐⭐⭐⭐    | ⭐⭐⭐⭐   |
+| Knowledge Graphs | ⚡⚡       | $$$  | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐   |
 
 ---
 transition: slide-left
@@ -1677,12 +2032,24 @@ The client connects to its server using a transport.
 This transport is responsible for sending messages between the client and the server.
 
 There are currently two supported transports.
-You can communicate via stdio - in other words, via the terminal.
+You can communicate via stdio - in other words, via the terminal (local connection).
 Or you can communicate through Streamable HTTP (this replaces the old SSE).
-This is useful if you want to run your server on a remote machine.
+This is useful if you want to run your server on a remote machine (remote connection).
 
 The messages sent across this transport are called the MCP protocol.
 It's a set of JSON shapes that the client and server can send to each other, based on JSON-RPC 2.0. 
+
+<!--
+-->
+
+---
+transition: slide-left
+layout: center
+---
+
+# [Authorization](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)
+
+MCP provides authorization capabilities at the transport level, enabling MCP clients to make requests to restricted MCP servers on behalf of resource owners. 
 
 <!--
 -->
@@ -1834,8 +2201,8 @@ The key tool for managing uncertainty in probababilistic systems is evals.
 Evals are the AI engineer's unit tests. 
 They are how you get predictability from a probabilistic system. 
 
-Evals help us measure various aspects, such as AI Quality, Safety, Governance, and Ethics. 
-These dimensions help us create a comprehensive understanding of an LLM's performance and potential impact.
+Evals help us measure various aspects, such as Quality, Safety, Governance, and Ethics. 
+These 4 dimensions help us create a comprehensive understanding of an LLM's performance and potential impact.
 -->
 
 ---
